@@ -42,11 +42,11 @@ namespace program_lab2
 
         static void Main()
         {
-            Console.WriteLine("Часть 1");
             Part1();
             Console.WriteLine();
             Console.WriteLine("Часть 2");
             Part2();
+            Console.ReadLine();
         }
     }
 }

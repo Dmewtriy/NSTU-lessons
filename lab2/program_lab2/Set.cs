@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace program_lab2
 {
-    internal class Set<T> : IEnumerable<T>
+    public class Set<T> : IEnumerable<T>
     {
         private List<T> value;
         public IEnumerator<T> GetEnumerator() => value.GetEnumerator();
@@ -21,9 +21,9 @@ namespace program_lab2
 
         public void Add(T _value)
         {
-            if (value == null)
+            if (_value == null)
             {
-                throw new ArgumentNullException(nameof(_value));
+                return;
             }
             if (!value.Contains(_value))
             {
@@ -35,11 +35,11 @@ namespace program_lab2
         {
             if (value == null)
             {
-                throw new ArgumentNullException(nameof(_value));
+                return;
             }
             if (!value.Contains(_value))
             {
-                throw new KeyNotFoundException($"Элемент {_value} не найден в множестве");
+                return;
             }
             value.Remove(_value);
         }
@@ -117,17 +117,17 @@ namespace program_lab2
 
         public static explicit operator int(Set<T> set)
         {
-            return set.value.Count;
+            return set.Count;
         }
 
         public static bool operator true(Set<T> set)
         {
-            return set.value.Count <= 20;
+            return set.Count <= 20;
         }
 
         public static bool operator false(Set<T> set)
         {
-            return set.value.Count > 20;
+            return set.Count > 20;
         }
 
         public override string ToString()
@@ -135,6 +135,5 @@ namespace program_lab2
             return string.Join(", ", value);
         }
 
-        
     }
 }
