@@ -30,7 +30,7 @@ class Program
                         Console.WriteLine("Введите вес: ");
                         int weight = int.Parse(Console.ReadLine());
 
-                        off_tech off = new off_tech(str, price, weight);
+                        off_tech off = new off_tech(str, weight, price);
                         devices.Add(off);
                         break;
                     }
@@ -49,7 +49,7 @@ class Program
                         int sv3 = int.Parse(Console.ReadLine());
                         tech_of_print sv4 = (tech_of_print)sv3;
 
-                        Printer printer = new Printer(speed, sv4, str, price, weight);
+                        Printer printer = new Printer(speed, sv4, str, weight, price);
                         devices.Add(printer);
                         break;
                     }
@@ -67,7 +67,7 @@ class Program
                         Console.WriteLine("Введите наличие отложенной печати: 0 или 1 ");
                         bool delayedPrint = int.Parse(Console.ReadLine()) == 1;
 
-                        var fax = new Fax(resOfPages, delayedPrint, str, price, weight);
+                        var fax = new Fax(resOfPages, delayedPrint, str, weight, price);
                         devices.Add(fax);
                         break;
                     }
@@ -80,6 +80,7 @@ class Program
                         break;
                     }
                 case 0:
+                    Console.WriteLine("Завершение работы");
                     return;
                 default:
                     Console.WriteLine("\nНеверный выбор\n");

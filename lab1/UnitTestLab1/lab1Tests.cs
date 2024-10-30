@@ -1,8 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using lab1;
-using System.Diagnostics;
-using System.Globalization;
 
 namespace UnitTestLab1
 {
