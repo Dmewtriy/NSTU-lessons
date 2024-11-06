@@ -13,9 +13,53 @@ namespace lab3
         private int price;
         private string name;
         private string history;
-        public virtual void Attack()
+
+        public int HP
         {
-            Console.WriteLine("I'm Attack");
+            get { return hp; }
+            set
+            {
+                if (value > 0 && value <= 10) hp = value;
+                else hp = 1;
+            }
+        }
+
+        public int Damage
+        {
+            get { return damage; }
+            set
+            {
+                if (value > 0 && value <= 8) damage = value;
+                else damage = 1;
+            }
+        }
+
+        public int Price
+        {
+            get { return price; }
+            set
+            {
+                if (value > 0 && value <= 10) price = value;
+                else price = 1;
+            }
+        }
+
+        public string Name
+        {
+            get { return name; }
+            set 
+            {
+                if (!string.IsNullOrEmpty(value) && !string.IsNullOrWhiteSpace(value))
+                {
+                    name = value;
+                }
+                else name = "Mob";
+            }
+        }
+
+        public virtual void Attack(Mob enemy)
+        {
+            enemy.HP -= Damage;
         }
     }
 }
