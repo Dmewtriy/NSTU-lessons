@@ -10,7 +10,7 @@ namespace lab3
     internal class HealthSpell:Spell
     {
         private int indexHealth; // число восстанавливающего эффекта
-        public int IndexHealth
+        public int IndexHealth  
         {
             get { return indexHealth; }
             set
@@ -25,7 +25,7 @@ namespace lab3
                 }
             }
         }
-        public void HealthEffect(Mob teammate)
+        public void HealthEffect(Mob teammate) // прибавляем жизни к существу
         {
             teammate.HP += indexHealth;
         }

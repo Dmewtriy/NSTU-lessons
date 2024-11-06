@@ -9,10 +9,10 @@ namespace lab3
     //Зелье, понижающие урон картам соперника
     internal class LowAttackSpell:Spell
     {
-        private int indexAttack;
-        private int timeEffect;
-        private bool flag;
-        private int baseAttack;
+        private int indexAttack; // значение на которое понизится атака
+        private int timeEffect; // время действия атаки
+        private bool flag; // нужно для реализации timeEffect
+        private int baseAttack; // нужно для реализации timeEffect
         public int IndexAttack
         {
             get { return indexAttack; }
@@ -37,23 +37,23 @@ namespace lab3
                 else timeEffect = 1;
             }
         }
-        public void AttackEffect(Mob opponent)
+        public void AttackEffect(Mob enemy)
         {
-            if (flag == true)
+            if (flag == true) // такое условие нужно, чтобы урон изменился только один раз 
             { 
-                baseAttack = opponent.Damage;
-                if (opponent.Damage <= indexAttack)
+                baseAttack = enemy.Damage;
+                if (enemy.Damage <= indexAttack)
                 {
-                    opponent.Damage = 1;
+                    enemy.Damage = 1;
                 }
-                else opponent.Damage -= indexAttack;
+                else enemy.Damage -= indexAttack;
                 flag = false;
             }
 
             if (timeEffect > 0) timeEffect -= 1;
-            else if (timeEffect == 0)
+            else if (timeEffect == 0) // если время эффекта закончилось то возвращаем атаку на место
             {
-                opponent.Damage = baseAttack;
+                enemy.Damage = baseAttack;
             }
         }
         
