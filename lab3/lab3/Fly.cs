@@ -8,6 +8,9 @@ namespace lab3
 {
     internal class Fly : Mob
     {
-
+        public override void Attack(Fly enemy)
+        {
+            enemy.HP -= Damage;
+        }
     }
 }
