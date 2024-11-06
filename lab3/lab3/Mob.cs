@@ -11,7 +11,8 @@ namespace lab3
         private int hp;
         private int damage;
         private int price;
-
+        private string name;
+        private string history;
         public virtual void Attack()
         {
             Console.WriteLine("I'm Attack");
