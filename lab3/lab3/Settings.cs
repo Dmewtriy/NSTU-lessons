@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace lab3
@@ -12,6 +13,7 @@ namespace lab3
         private int maxCoins; // максимальное число монет
         private int numMapsOnTable; //  максимальное число карт в "руках"
         private int sizeDeck; // размер колоды
+        private Timer time; // таймер
 
         public int MaxCoins
         {
