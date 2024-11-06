@@ -61,5 +61,8 @@ namespace lab3
         {
             enemy.HP -= Damage;
         }
+
+        public virtual void Attack(Fly enemy)
+        {}
     }
 }

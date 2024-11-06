@@ -13,5 +13,10 @@ namespace lab3
             base.Attack(enemy);
             enemy.HP -= 2;
         }
+
+        public override void Attack(Fly enemy)
+        {
+            enemy.HP -= Damage;
+        }
     }
 }
