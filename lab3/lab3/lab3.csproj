@@ -50,6 +50,7 @@
     <Compile Include="Mage.cs" />
     <Compile Include="Melee.cs" />
     <Compile Include="Mob.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
