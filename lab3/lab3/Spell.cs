@@ -7,53 +7,14 @@ using System.Threading.Tasks;
 
 namespace lab3
 {
-    internal abstract class Spell
+    internal abstract class Spell : Card
     {
-        private string name; // название зелья
-        private string description; // краткое описание
-        private int price; // стоимость карты(монеты)
-        public string Name
+        public new int Price
         {
-            get 
-            { 
-                return name; 
-            }
-            set 
-            {
-                if (!string.IsNullOrEmpty(value) && !string.IsNullOrWhiteSpace(value))
-                {
-                    name = value;
-                }
-                else name = "Spell";
-            }
-        }
-        public string Description
-        {
-            get
-            {
-                return description;
-            }
+            get { return price; }
             set
             {
-                if (!string.IsNullOrEmpty(value) && !string.IsNullOrWhiteSpace(value))
-                {
-                    description = value;
-                }
-                else description = "None";
-            }
-        }
-        public int Price
-        {
-            get
-            {
-                return price;
-            }
-            set
-            {
-                if (value > 0 && value < 5)
-                {
-                    price = value;
-                }
+                if (value > 0 && value <= 4) price = value;
                 else price = 1;
             }
         }

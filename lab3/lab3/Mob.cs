@@ -8,13 +8,10 @@ using System.Threading.Tasks;
 
 namespace lab3
 {
-    internal abstract class Mob
+    internal abstract class Mob : Card
     {
         private int hp;
         private int damage;
-        private int price;
-        private string name;
-        private string history; // Женин таск
         public string Type => GetType().Name; // Свойство Type для указания типа
         public static readonly string path = "..\\..\\..\\cards";
 
@@ -35,42 +32,6 @@ namespace lab3
             {
                 if (value > 0 && value <= 8) damage = value;
                 else damage = 1;
-            }
-        }
-
-        public int Price
-        {
-            get { return price; }
-            set
-            {
-                if (value > 0 && value <= 10) price = value;
-                else price = 1;
-            }
-        }
-
-        public string Name
-        {
-            get { return name; }
-            set 
-            {
-                if (!string.IsNullOrEmpty(value) && !string.IsNullOrWhiteSpace(value))
-                {
-                    name = value;
-                }
-                else name = "Mob";
-            }
-        }
-
-        public string History
-        {
-            get { return history; }
-            set
-            {
-                if (!string.IsNullOrEmpty(value) && !string.IsNullOrWhiteSpace(value))
-                {
-                    history = value;
-                }
-                else history = "will be later";
             }
         }
 
