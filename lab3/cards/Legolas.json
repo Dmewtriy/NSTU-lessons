@@ -1,7 +1,7 @@
 {
   "Type": "Archer",
   "HP": 5,
-  "Damage": 5,
+  "Damage": 4,
   "Price": 5,
   "Name": "Legolas"
 }
