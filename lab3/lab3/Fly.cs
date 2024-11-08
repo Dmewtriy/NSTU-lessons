@@ -10,7 +10,7 @@ namespace lab3
     {
         public override void Attack(Fly enemy)
         {
-            enemy.HP -= Damage;
+            enemy.Hp -= Damage;
         }
     }
 }

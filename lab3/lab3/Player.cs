@@ -30,14 +30,31 @@ namespace lab3
         {
             get { return level; }
         }
-        public List<Mob> Deck { get; set; } = new List<Mob>();
 
-        public void level_up(int exp) // функция получвет опыт в конце игры и увеличивает уровень
+        private List<Card> deck = new List<Card>();
+        public List<Card> Deck
+        {
+            get
+            {
+                return deck;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    if (value.Count > 0) { deck = value; }
+                    else throw new ArgumentException("Колода не может быть пустой");
+                }
+                else throw new ArgumentNullException("Колода не может быть null");
+            }
+        }
+
+        public void LevelUp(int exp) // функция получает опыт в конце игры и увеличивает уровень
         {
             this.exp += exp;
             while (this.exp>=10+level*2)
             {
-                this.exp = this.exp - (10+level*2);
+                this.exp -= (10+level*2);
                 level++;
             }
         }

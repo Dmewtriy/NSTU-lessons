@@ -11,13 +11,13 @@ namespace lab3
         public override void Attack(Archer enemy)
         {
             base.Attack(enemy);
-            enemy.HP -= 2;
+            enemy.Hp -= 2;
         }
 
         public override void Attack(Tank enemy)
         {
             base.Attack(enemy);
-            enemy.HP += 2;
+            enemy.Hp += 2;
         }
     }
 }
