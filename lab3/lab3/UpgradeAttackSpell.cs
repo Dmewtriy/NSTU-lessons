@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace lab3
 {
     // улучшение атаки союзных карт
-    internal class UpgradeAttackSpell
+    internal class UpgradeAttackSpell : Spell
     {
         private int indexUpgradeAttack; // значение на которое повысится атака
 

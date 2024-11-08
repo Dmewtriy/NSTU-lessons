@@ -12,8 +12,7 @@ namespace lab3
     {
         private int hp;
         private int damage;
-        public string Type => GetType().Name; // Свойство Type для указания типа
-        public static readonly string path = "..\\..\\..\\cards";
+        public static readonly string path = "..\\..\\..\\cards\\mobs";
 
         public int Hp
         {
