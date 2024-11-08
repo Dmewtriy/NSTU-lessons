@@ -29,7 +29,7 @@ namespace lab3
                 }
                 else
                 {
-                    maxCoins = 12;
+                    throw new ArgumentOutOfRangeException("Неверное значение максимального количества монет");
                 }
             }
         }
@@ -48,7 +48,7 @@ namespace lab3
                 }
                 else
                 {
-                    numMapsOnTable = 5;
+                    throw new ArgumentOutOfRangeException("Неверное значение максимального количества карт \"в руках\"");
                 }
             }
         }
@@ -67,7 +67,7 @@ namespace lab3
                 }
                 else
                 {
-                    sizeDeck = 15;
+                    throw new ArgumentOutOfRangeException("Неверное значение размера колоды");
                 }
             }
         }

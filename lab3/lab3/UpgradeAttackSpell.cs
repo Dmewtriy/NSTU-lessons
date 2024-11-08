@@ -22,7 +22,7 @@ namespace lab3
                 }
                 else 
                 {
-                    indexUpgradeAttack = 1;
+                    throw new ArgumentOutOfRangeException("Неверное значение повышения атаки");
                 }
             }
         }

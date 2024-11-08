@@ -15,7 +15,7 @@ namespace lab3
             set
             {
                 if (value > 0 && value <= 10) price = value;
-                else price = 1;
+                else throw new ArgumentOutOfRangeException("Неверное значение цены");
             }
         }
 
@@ -29,7 +29,7 @@ namespace lab3
                 {
                     name = value;
                 }
-                else name = "Card";
+                else throw new ArgumentException("Неверное имя");
             }
         }
 
@@ -43,7 +43,7 @@ namespace lab3
                 {
                     description = value;
                 }
-                else description = "Will be later";
+                else throw new ArgumentException("Неверное описание");
             }
         }
     }

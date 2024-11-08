@@ -22,7 +22,7 @@ namespace lab3
                 {
                     indexAttack = value;
                 }
-                else indexAttack = 1;
+                else throw new ArgumentOutOfRangeException("Неверное значение понижения урона");
             }
         }
         public int TimeEffect
@@ -34,7 +34,7 @@ namespace lab3
                 {
                     timeEffect = value;
                 }
-                else timeEffect = 1;
+                else throw new ArgumentOutOfRangeException("Неверное значение времени действия");
             }
         }
         public void AttackEffect(Mob enemy)

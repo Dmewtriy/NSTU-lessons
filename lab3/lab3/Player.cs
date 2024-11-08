@@ -13,19 +13,21 @@ namespace lab3
         private int exp;  // опыт получаемый в конце игры при победе равный количеству убитых Mob
         private int level = 1; // уровень повышается когда exp равен 10+level*2
         public string Name {  get; set; }
-        public int Health {
+        public int Health
+        {
             get { return health; }
             set
             {
                 if (value > 0 && value <= 100) health = value;
-                else health = 50;
+                else throw new ArgumentOutOfRangeException("Неверное значение здоровья игрока");
             }
         }
         public int Exp
         {
             get { return exp; }
         }
-        public int Level { 
+        public int Level
+        {
             get { return level; }
         }
         public List<Mob> Deck { get; set; } = new List<Mob>();

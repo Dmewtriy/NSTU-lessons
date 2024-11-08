@@ -15,7 +15,7 @@ namespace lab3
             set
             {
                 if (value > 0 && value <= 4) price = value;
-                else price = 1;
+                else throw new ArgumentOutOfRangeException("Неверное значение цены");
             }
         }
     }

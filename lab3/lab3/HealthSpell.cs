@@ -21,13 +21,13 @@ namespace lab3
                 }
                 else
                 {
-                    indexHealth = 0;
+                    throw new ArgumentOutOfRangeException("Неверное значение восстанавливающего эффекта");
                 }
             }
         }
         public void HealthEffect(Mob teammate) // прибавляем жизни к существу
         {
-            teammate.HP += indexHealth;
+            teammate.Hp += indexHealth;
         }
     }
 }

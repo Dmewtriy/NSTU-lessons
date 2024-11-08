@@ -15,13 +15,13 @@ namespace lab3
         public string Type => GetType().Name; // Свойство Type для указания типа
         public static readonly string path = "..\\..\\..\\cards";
 
-        public int HP
+        public int Hp
         {
             get { return hp; }
             set
             {
                 if (value > 0 && value <= 10) hp = value;
-                else hp = 1;
+                else throw new ArgumentOutOfRangeException("Неверное значение здоровья");
             }
         }
 
@@ -31,7 +31,7 @@ namespace lab3
             set
             {
                 if (value > 0 && value <= 8) damage = value;
-                else damage = 1;
+                else throw new ArgumentOutOfRangeException("Неверное значение урона");
             }
         }
 
@@ -43,17 +43,17 @@ namespace lab3
             // Нет необходимости, так как Melee не имеет иммунитета ни к какому классу
             // else if (enemy is Melee meleeEnemy) Attack(meleeEnemy);
             else if (enemy is Tank tankEnemy) Attack(tankEnemy);
-            else enemy.HP -= Damage;
+            else enemy.Hp -= Damage;
         }
 
         public virtual void Attack(Archer enemy)
         {
-            enemy.HP -= Damage;
+            enemy.Hp -= Damage;
         }
 
         public virtual void Attack(Mage enemy)
         {
-            enemy.HP -= Damage;
+            enemy.Hp -= Damage;
         }
 
         /*public virtual void Attack(Melee enemy)
@@ -63,7 +63,7 @@ namespace lab3
 
         public virtual void Attack(Tank enemy)
         {
-            enemy.HP -= Damage;
+            enemy.Hp -= Damage;
         }
 
         public virtual void Attack(Fly enemy)
