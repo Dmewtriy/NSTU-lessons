@@ -61,6 +61,19 @@ namespace lab3
             }
         }
 
+        public string History
+        {
+            get { return history; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value) && !string.IsNullOrWhiteSpace(value))
+                {
+                    history = value;
+                }
+                else history = "will be later";
+            }
+        }
+
         public virtual void Attack(Mob enemy)
         {
             enemy.HP -= Damage;
