@@ -8,13 +8,13 @@ namespace lab3
 {
     internal class Melee : Mob
     {
-        public void Attack(Archer enemy)
+        public override void Attack(Archer enemy)
         {
             base.Attack(enemy);
             enemy.HP -= 2;
         }
 
-        public void Attack(Tank enemy)
+        public override void Attack(Tank enemy)
         {
             base.Attack(enemy);
             enemy.HP += 2;

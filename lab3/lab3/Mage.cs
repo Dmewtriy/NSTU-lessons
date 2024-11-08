@@ -8,7 +8,7 @@ namespace lab3
 {
     internal class Mage : Mob
     {
-        public void Attack(Tank enemy)
+        public override void Attack(Tank enemy)
         {
             base.Attack(enemy);
             enemy.HP -= 2;

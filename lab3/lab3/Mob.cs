@@ -76,6 +76,32 @@ namespace lab3
 
         public virtual void Attack(Mob enemy)
         {
+            if (enemy is Fly flyEnemy) Attack(flyEnemy);
+            else if (enemy is Archer archEnemy) Attack(archEnemy);
+            else if (enemy is Mage mageEnemy) Attack(mageEnemy);
+            // Нет необходимости, так как Melee не имеет иммунитета ни к какому классу
+            // else if (enemy is Melee meleeEnemy) Attack(meleeEnemy);
+            else if (enemy is Tank tankEnemy) Attack(tankEnemy);
+            else enemy.HP -= Damage;
+        }
+
+        public virtual void Attack(Archer enemy)
+        {
+            enemy.HP -= Damage;
+        }
+
+        public virtual void Attack(Mage enemy)
+        {
+            enemy.HP -= Damage;
+        }
+
+        /*public virtual void Attack(Melee enemy)
+        {
+            enemy.HP -= Damage;
+        }*/
+
+        public virtual void Attack(Tank enemy)
+        {
             enemy.HP -= Damage;
         }
 

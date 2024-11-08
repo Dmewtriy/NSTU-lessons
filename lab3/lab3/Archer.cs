@@ -8,13 +8,13 @@ namespace lab3
 {
     internal class Archer : Mob
     {
-        public void Attack(Mage enemy)
+        public override void Attack(Mage enemy)
         {
             base.Attack(enemy);
             enemy.HP -= 2;
         }
 
-        public void Attack(Tank enemy)
+        public override void Attack(Tank enemy)
         {
             base.Attack(enemy);
             enemy.HP += 2;
