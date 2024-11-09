@@ -29,7 +29,7 @@ namespace lab3
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Неверное значение максимального количества монет");
+                    throw new ArgumentOutOfRangeException("Неверное значение максимального количества монет: > 7");
                 }
             }
         }
@@ -73,9 +73,9 @@ namespace lab3
         }
         public Settings() 
         {
-            maxCoins = 12;
-            numMapsOnTable = 5;
-            sizeDeck = 15;
+            maxCoins = MaxCoins;
+            numMapsOnTable = NumMapsOnTable;
+            sizeDeck = SizeDeck;
         }
     }
 }

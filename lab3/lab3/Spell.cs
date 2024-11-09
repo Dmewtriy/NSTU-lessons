@@ -18,7 +18,7 @@ namespace lab3
             set
             {
                 if (value > 0 && value <= 4) price = value;
-                else throw new ArgumentOutOfRangeException("Неверное значение цены");
+                else throw new ArgumentOutOfRangeException("Неверное значение стоимости карты: принимает значения от 1 до 4 (включительно)");
             }
         }
 
