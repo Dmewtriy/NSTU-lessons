@@ -25,7 +25,7 @@ namespace lab3
                 }
             }
         }
-        public void HealthEffect(Mob teammate) // прибавляем жизни к существу
+        public override void UseSpell(Mob teammate) // прибавляем жизни к существу
         {
             teammate.Hp += indexHealth;
         }

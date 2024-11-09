@@ -64,5 +64,8 @@ namespace lab3
             }
             return spells;
         }
+
+        public virtual void UseSpell(Mob enemy)
+        {}
     }
 }

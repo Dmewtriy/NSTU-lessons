@@ -27,7 +27,7 @@ namespace lab3
             }
         }
        
-        public void upgradeAttackEffect(Mob teammate)
+        public override void UseSpell(Mob teammate)
         {
             teammate.Damage += indexUpgradeAttack;
         }
