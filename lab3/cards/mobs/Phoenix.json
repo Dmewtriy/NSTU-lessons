@@ -1,6 +1,6 @@
 {
   "Type": "Fly",
-  "HP": 5,
+  "Hp": 5,
   "Damage": 3,
   "Price": 4,
   "Name": "Phoenix"

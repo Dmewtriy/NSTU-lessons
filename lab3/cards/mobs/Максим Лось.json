@@ -1,6 +1,6 @@
 {
   "Type": "Tank",
-  "HP": 10,
+  "Hp": 10,
   "Damage": 3,
   "Price": 7,
   "Name": "\u041C\u0430\u043A\u0441\u0438\u043C \u041B\u043E\u0441\u044C",
