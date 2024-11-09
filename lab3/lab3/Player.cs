@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,14 +50,18 @@ namespace lab3
             }
         }
 
-        public void LevelUp(int exp) // функция получает опыт в конце игры и увеличивает уровень
+        public void GetExp(int exp) // функция получает опыт в конце игры и увеличивает уровень, если опыта достаточно
         {
-            this.exp += exp;
-            while (this.exp>=10+level*2)
+            if (exp > 0)
             {
-                this.exp -= (10+level*2);
-                level++;
+                this.exp += exp;
+                while (this.exp >= 10 + level * 2)
+                {
+                    this.exp -= (10 + level * 2);
+                    level++;
+                }
             }
+            else throw new ArgumentOutOfRangeException("Значение для повышения опыта не может быть отрицательным");
         }
 
     }

@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 namespace lab3
 {
     //Зелье, понижающие урон картам соперника
-    internal class LowAttackSpell:Spell
+    internal class LowAttackSpell : Spell
     {
         private int indexAttack; // значение на которое понизится атака
         private int timeEffect; // время действия атаки
-        private bool flag; // нужно для реализации timeEffect
-        private int baseAttack; // нужно для реализации timeEffect
+        //private bool flag; // нужно для реализации timeEffect
         public int IndexAttack
         {
             get { return indexAttack; }
@@ -39,22 +38,31 @@ namespace lab3
         }
         public void AttackEffect(Mob enemy)
         {
-            if (flag == true) // такое условие нужно, чтобы урон изменился только один раз 
-            { 
-                baseAttack = enemy.Damage;
-                if (enemy.Damage <= indexAttack)
-                {
-                    enemy.Damage = 1;
-                }
-                else enemy.Damage -= indexAttack;
-                flag = false;
-            }
+            int baseDamage = enemy.Damage;
+            ApplyEffect(enemy);
 
-            if (timeEffect > 0) timeEffect -= 1;
-            else if (timeEffect == 0) // если время эффекта закончилось то возвращаем атаку на место
+            // что-то делаем с временем
+            if (timeEffect == 0) // если время эффекта закончилось то возвращаем атаку на место
             {
-                enemy.Damage = baseAttack;
+                RemoveEffect(enemy, baseDamage);
             }
+        }
+
+        private void ApplyEffect(Mob enemy)
+        {
+            if (enemy.Damage <= indexAttack)
+            {
+                enemy.Damage = 1;
+            }
+            else
+            {
+                enemy.Damage -= indexAttack;
+            }
+        }
+
+        private void RemoveEffect(Mob enemy, int baseDamage)
+        {
+            enemy.Damage = baseDamage;
         }
         
     }
