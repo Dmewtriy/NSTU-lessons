@@ -71,11 +71,18 @@ namespace lab3
                 }
             }
         }
-        public Settings() 
+        public Settings()
         {
-            maxCoins = MaxCoins;
-            numMapsOnTable = NumMapsOnTable;
-            sizeDeck = SizeDeck;
+            MaxCoins = 12;
+            NumMapsOnTable = 5;
+            SizeDeck = 15;
         }
+        public Settings(int _maxCoins, int _numMapsOnTable, int _sizeDeck) 
+        {
+            MaxCoins = _maxCoins;
+            NumMapsOnTable = _numMapsOnTable;
+            SizeDeck = _sizeDeck;
+        }
+
     }
 }
