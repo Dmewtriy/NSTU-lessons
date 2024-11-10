@@ -22,7 +22,7 @@ namespace lab3
                 }
                 else 
                 {
-                    throw new ArgumentOutOfRangeException("Неверное значение повышения атаки");
+                    throw new ArgumentOutOfRangeException("Неверное значение повышения атаки: принимает целые значения от 1 до 3 (включительно)");
                 }
             }
         }

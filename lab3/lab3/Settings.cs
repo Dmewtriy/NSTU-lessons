@@ -13,8 +13,7 @@ namespace lab3
         private int maxCoins; // максимальное число монет
         private int numMapsOnTable; //  максимальное число карт в "руках"
         private int sizeDeck; // размер колоды
-        private Timer time; // таймер
-
+        
         public int MaxCoins
         {
             get 
@@ -29,7 +28,7 @@ namespace lab3
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Неверное значение максимального количества монет: > 7");
+                    throw new ArgumentOutOfRangeException("Неверное значение максимального количества монет: принимает целые значения от 8 (включительно)");
                 }
             }
         }

@@ -78,6 +78,7 @@
     <Compile Include="Card.cs" />
     <Compile Include="Fly.cs" />
     <Compile Include="Interfaces\IGetDamage.cs" />
+    <Compile Include="GameProcess.cs" />
     <Compile Include="LowAttackSpell.cs" />
     <Compile Include="HealthSpell.cs" />
     <Compile Include="Mage.cs" />
