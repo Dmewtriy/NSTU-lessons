@@ -14,6 +14,7 @@ namespace lab3
         private int exp;  // опыт получаемый в конце игры при победе равный количеству убитых Mob
         private int level = 1; // уровень повышается когда exp равен 10+level*2
         private string name;
+        private Deck deckFinal;
         public string Name 
         {  
             get
@@ -38,25 +39,27 @@ namespace lab3
                 else throw new ArgumentOutOfRangeException("Неверное значение здоровья игрока");
             }
         }
+
+        public Player()
+        {
+            deckFinal = new Deck();
+            deckFinal.CreateDeck();
+        }
+
         public int Exp { get;  }
         public int Level { get; }
 
-        private List<Card> deck = new List<Card>();
         public List<Card> Deck
         {
             get
             {
-                return deck;
+                return deckFinal.DeckFinal;
             }
-            set
-            {
-                if (value != null)
-                {
-                    if (value.Count > 0) { deck = value; }
-                    else throw new ArgumentException("Колода не может быть пустой");
-                }
-                else throw new ArgumentNullException("Колода не может быть null");
-            }
+        }
+
+        public void ChangeDeck()
+        {
+            deckFinal.ModifyDeck();
         }
 
         public void GetExp(int exp) // функция получает опыт в конце игры и увеличивает уровень, если опыта достаточно
