@@ -13,9 +13,11 @@ namespace lab3
         protected List<Spell> cardsSpell;
         public Deck()
         {
+            MobPersistence mobPersistence = new MobPersistence();
+            SpellPersistence spellPersistence = new SpellPersistence();
             deckFinal = new List<Card>();
-            cardsMob = new List<Mob>(Mob.LoadFromJson());
-            cardsSpell = new List<Spell>(Spell.LoadFromJson());
+            cardsMob = new List<Mob>(mobPersistence.LoadFromJson());
+            cardsSpell = new List<Spell>(spellPersistence.LoadFromJson());
         }
         public List<Card> DeckFinal { get { return deckFinal; } }
         public void PrintAllCards()
