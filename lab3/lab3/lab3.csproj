@@ -78,17 +78,19 @@
     <Compile Include="Card.cs" />
     <Compile Include="Fly.cs" />
     <Compile Include="Interfaces\IGetDamage.cs" />
-    <Compile Include="GameProcess.cs" />
+    <Compile Include="Interfaces\IPersistence.cs" />
     <Compile Include="LowAttackSpell.cs" />
     <Compile Include="HealthSpell.cs" />
     <Compile Include="Mage.cs" />
     <Compile Include="Melee.cs" />
     <Compile Include="Mob.cs" />
+    <Compile Include="MobPersistence.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Spell.cs" />
+    <Compile Include="SpellPersistence.cs" />
     <Compile Include="Tank.cs" />
     <Compile Include="UpgradeAttackSpell.cs" />
   </ItemGroup>
