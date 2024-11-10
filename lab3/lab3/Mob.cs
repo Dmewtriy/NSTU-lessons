@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace lab3
 {
-    internal abstract class Mob : Card
+    internal abstract class Mob : Card, Interfaces.IGetDamage
     {
         private int hp;
         private int damage;
@@ -34,39 +34,8 @@ namespace lab3
             }
         }
 
-        public virtual void Attack(Mob enemy)
-        {
-            if (enemy is Fly flyEnemy) Attack(flyEnemy);
-            else if (enemy is Archer archEnemy) Attack(archEnemy);
-            else if (enemy is Mage mageEnemy) Attack(mageEnemy);
-            // Нет необходимости, так как Melee не имеет иммунитета ни к какому классу
-            // else if (enemy is Melee meleeEnemy) Attack(meleeEnemy);
-            else if (enemy is Tank tankEnemy) Attack(tankEnemy);
-            else enemy.Hp -= Damage;
-        }
+        public abstract void Attack(Mob enemy);
 
-        public virtual void Attack(Archer enemy)
-        {
-            enemy.Hp -= Damage;
-        }
-
-        public virtual void Attack(Mage enemy)
-        {
-            enemy.Hp -= Damage;
-        }
-
-        /*public virtual void Attack(Melee enemy)
-        {
-            enemy.HP -= Damage;
-        }*/
-
-        public virtual void Attack(Tank enemy)
-        {
-            enemy.Hp -= Damage;
-        }
-
-        public virtual void Attack(Fly enemy)
-        {}
 
         public void SaveToJson()
         {
@@ -117,5 +86,11 @@ namespace lab3
             }
             return mobs;
         }
+
+        public abstract void GetDamage(Archer archer);
+        public abstract void GetDamage(Fly fly);
+        public abstract void GetDamage(Mage mage);
+        public abstract void GetDamage(Melee melee);
+        public abstract void GetDamage(Tank tank);
     }
 }

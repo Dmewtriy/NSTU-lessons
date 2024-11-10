@@ -6,17 +6,36 @@ using System.Threading.Tasks;
 
 namespace lab3
 {
-    internal class Mage : Mob
+    internal class Mage : Mob, Interfaces.IGetDamage
     {
-        public override void Attack(Tank enemy)
+        public override void Attack(Mob enemy)
         {
-            base.Attack(enemy);
-            enemy.Hp -= 2;
+            enemy.GetDamage(this);
         }
 
-        public override void Attack(Fly enemy)
+        public override void GetDamage(Archer archer)
         {
-            enemy.Hp -= Damage;
+            Hp -= archer.Damage + 2;
+        }
+
+        public override void GetDamage(Fly fly)
+        {
+            Hp -= fly.Damage;
+        }
+
+        public override void GetDamage(Mage mage)
+        {
+            Hp -= mage.Damage;
+        }
+
+        public override void GetDamage(Melee melee)
+        {
+            Hp -= melee.Damage;
+        }
+
+        public override void GetDamage(Tank tank)
+        {
+            Hp -= tank.Damage;
         }
     }
 }
