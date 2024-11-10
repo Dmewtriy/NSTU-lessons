@@ -8,5 +8,6 @@ namespace lab3
 {
     internal class Tank : Mob
     {
+        
     }
 }

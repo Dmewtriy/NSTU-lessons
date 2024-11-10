@@ -21,7 +21,7 @@ namespace lab3
                 {
                     indexAttack = value;
                 }
-                else throw new ArgumentOutOfRangeException("Неверное значение понижения урона");
+                else throw new ArgumentOutOfRangeException("Неверное значение понижения урона: принимает целые значения от 1 до 3 (включительно)");
             }
         }
         public int TimeEffect
@@ -33,7 +33,7 @@ namespace lab3
                 {
                     timeEffect = value;
                 }
-                else throw new ArgumentOutOfRangeException("Неверное значение времени действия");
+                else throw new ArgumentOutOfRangeException("Неверное значение времени действия: принимает целые значения от 1 до 2 (включительно)");
             }
         }
         public override void UseSpell(Mob enemy)

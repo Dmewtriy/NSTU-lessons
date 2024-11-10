@@ -21,7 +21,7 @@ namespace lab3
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Неверное значение восстанавливающего эффекта");
+                    throw new ArgumentOutOfRangeException("Неверное значение восстанавливающего эффекта: принимает целые значения от 1 до 4 (включительно)");
                 }
             }
         }
