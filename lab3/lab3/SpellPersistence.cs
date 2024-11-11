@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.IO;
-using System.Text.Json;
 
 namespace lab3
 {
@@ -11,31 +11,15 @@ namespace lab3
         {
             string[] cardFiles = Directory.GetFiles(path);
             var spells = new List<Spell>();
-            string jsonData, typeName;
-            JsonElement element;
+            string jsonData;
+            var options = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.All };
+            Spell spell;
             foreach (string cardFile in cardFiles)
             {
                 jsonData = File.ReadAllText(cardFile);
-                element = JsonSerializer.Deserialize<JsonElement>(jsonData);
-                typeName = element.GetProperty("Type").GetString();
 
-                Spell spell;
+                spell = JsonConvert.DeserializeObject<Spell>(jsonData, options);
 
-                switch (typeName)
-                {
-                    case "HealthSpell":
-                        spell = JsonSerializer.Deserialize<HealthSpell>(jsonData);
-                        break;
-                    case "LowAttackSpell":
-                        spell = JsonSerializer.Deserialize<LowAttackSpell>(jsonData);
-                        break;
-                    case "UpgradeAttackSpell":
-                        spell = JsonSerializer.Deserialize<UpgradeAttackSpell>(jsonData);
-                        break;
-                    default:
-                        spell = JsonSerializer.Deserialize<Spell>(jsonData);
-                        break;
-                }
                 spells.Add(spell);
             }
             return spells;
@@ -45,8 +29,8 @@ namespace lab3
         {
             string fileName = $"{entity.Name}.json";
             string filePath = path + "\\" + fileName;
-            var options = new JsonSerializerOptions { WriteIndented = true };
-            string json = JsonSerializer.Serialize(this, options);
+            var options = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.All };
+            string json = JsonConvert.SerializeObject(entity, options);
             File.WriteAllText(filePath, json);
         }
     }
