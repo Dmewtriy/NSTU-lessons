@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace lab3
 {
     internal abstract class Card
     {
-        public string Type => GetType().Name;
         protected int price;
         public int Price
         {
