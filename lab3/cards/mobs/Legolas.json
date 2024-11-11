@@ -1,7 +1,8 @@
 {
-  "Type": "Archer",
+  "$type": "lab3.Archer, lab3",
   "Hp": 5,
   "Damage": 4,
   "Price": 5,
-  "Name": "Legolas"
+  "Name": "Legolas",
+  "Description" : "Great Elf"
 }
