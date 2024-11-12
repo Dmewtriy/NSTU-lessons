@@ -42,5 +42,10 @@ namespace lab3
                 else throw new ArgumentException("Неверное описание");
             }
         }
+
+        public override string ToString()
+        {
+            return $"{name} {GetType().Name} Price-{price}";
+        }
     }
 }

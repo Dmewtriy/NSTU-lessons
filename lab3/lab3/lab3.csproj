@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllCards.cs" />
     <Compile Include="Archer.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="Deck.cs" />

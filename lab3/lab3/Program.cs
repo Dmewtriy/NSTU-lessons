@@ -4,7 +4,9 @@
     {
         static void Main()
         {
-            
+            Deck d = new Deck();
+            d.CreateDeck();
+            d.ModifyDeck();
         }
     }
 }

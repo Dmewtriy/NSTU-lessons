@@ -34,5 +34,10 @@ namespace lab3
         public abstract void GetDamage(Mage mage);
         public abstract void GetDamage(Melee melee);
         public abstract void GetDamage(Tank tank);
+
+        public override string ToString()
+        {
+            return base.ToString() + $" Hp-{hp} Damage-{damage}";
+        }
     }
 }
