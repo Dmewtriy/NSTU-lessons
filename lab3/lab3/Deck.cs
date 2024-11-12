@@ -27,14 +27,14 @@ namespace lab3
             foreach (Mob mob in cardsMob)
             {
 
-                Console.WriteLine($"{i}) {mob.Name} {mob.Type} HP-{mob.Hp} Damage-{mob.Damage} Price-{mob.Price}");
+                Console.WriteLine($"{i}) {mob.Name} {mob.GetType().Name} HP-{mob.Hp} Damage-{mob.Damage} Price-{mob.Price}");
                 i++;
             }
             Console.WriteLine("\nSpell");
             foreach (Spell spell in cardsSpell)
             {
 
-                Console.WriteLine($"{i}) {spell.Name} {spell.Type} Price-{spell.Price}");
+                Console.WriteLine($"{i}) {spell.Name} {spell.GetType().Name} Price-{spell.Price}");
                 i++;
             }
 
