@@ -9,7 +9,7 @@ namespace lab3
         private int exp;  // опыт получаемый в конце игры при победе равный количеству убитых Mob
         private int level = 1; // уровень повышается когда exp равен 10+level*2
         private string name;
-        private Deck deckFinal;
+        private Deck deck;
         public string Name 
         {  
             get
@@ -37,8 +37,7 @@ namespace lab3
 
         public Player()
         {
-            deckFinal = new Deck();
-            deckFinal.CreateDeck();
+            deck = new Deck();
         }
 
         public int Exp { get;  }
@@ -48,13 +47,8 @@ namespace lab3
         {
             get
             {
-                return deckFinal.DeckFinal;
+                return deck.DeckOfCard;
             }
-        }
-
-        public void ChangeDeck()
-        {
-            deckFinal.ModifyDeck();
         }
 
         public void GetExp(int exp) // функция получает опыт в конце игры и увеличивает уровень, если опыта достаточно
