@@ -14,6 +14,25 @@ namespace lab3
             }
         }
 
+        private int effect;
+        public int Effect
+        {
+            get { return effect; }
+            set
+            {
+                if (value > 0 && value < 4)
+                {
+                    effect = value;
+                }
+                else throw new ArgumentOutOfRangeException("Неверное значение величины эффекта: принимает целые значения от 1 до 3 (включительно)");
+            }
+        }
+
         public abstract void UseSpell(Mob enemy);
+
+        public override string ToString()
+        {
+            return base.ToString() + $" Effect-{Effect}";
+        }
     }
 }
