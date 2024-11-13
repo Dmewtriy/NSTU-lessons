@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Versioning;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace lab3
 {
@@ -11,9 +7,11 @@ namespace lab3
     {
         public static void Print(List<Card> deck)
         {
+            int i = 1;
             foreach (Card card in deck) 
-            { 
-                Console.WriteLine(card);
+            {
+                Console.WriteLine($"{i}) {card}");
+                i++;
             }
         }
     }
