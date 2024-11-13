@@ -4,28 +4,28 @@ using System.IO;
 
 namespace lab3
 {
-    internal class SpellPersistence : Interfaces.IPersistence<Spell>
+    internal class CardPersistence : Interfaces.IPersistence<Card>
     {
-        private static readonly string path = "..\\..\\..\\cards\\spells";
-        public List<Spell> LoadFromJson()
+        private static readonly string path = "..\\..\\..\\cards";
+        public List<Card> LoadFromJson()
         {
             string[] cardFiles = Directory.GetFiles(path);
-            var spells = new List<Spell>();
+            var cards = new List<Card>();
             string jsonData;
+            Card card;
             var options = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.All };
-            Spell spell;
             foreach (string cardFile in cardFiles)
             {
                 jsonData = File.ReadAllText(cardFile);
 
-                spell = JsonConvert.DeserializeObject<Spell>(jsonData, options);
+                card = JsonConvert.DeserializeObject<Card>(jsonData, options);
 
-                spells.Add(spell);
+                cards.Add(card);
             }
-            return spells;
+            return cards;
         }
 
-        public void SaveToJson(Spell entity)
+        public void SaveToJson(Card entity)
         {
             string fileName = $"{entity.Name}.json";
             string filePath = path + "\\" + fileName;
