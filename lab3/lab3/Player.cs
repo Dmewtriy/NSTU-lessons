@@ -47,7 +47,7 @@ namespace lab3
         {
             get
             {
-                return deck.DeckOfCard;
+                return deck.Cards;
             }
         }
 

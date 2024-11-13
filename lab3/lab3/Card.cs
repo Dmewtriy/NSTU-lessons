@@ -2,7 +2,7 @@
 
 namespace lab3
 {
-    internal abstract class Card
+    internal abstract class Card : ICloneable
     {
         protected int price;
         public int Price
@@ -46,6 +46,11 @@ namespace lab3
         public override string ToString()
         {
             return $"{name} {GetType().Name} Price-{price}";
+        }
+
+        public object Clone()
+        {
+            return MemberwiseClone();
         }
     }
 }

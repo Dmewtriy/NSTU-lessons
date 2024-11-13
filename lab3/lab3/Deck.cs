@@ -5,11 +5,11 @@ namespace lab3
 {
     internal class Deck
     {
-        private List<Card> deck;
-        public List<Card> DeckOfCard => deck;
+        private List<Card> cards;
+        public List<Card> Cards => cards;
         public Deck()
         {
-            deck = new List<Card>();
+            cards = new List<Card>();
         }
 
         public void AddCard(Card card)
@@ -17,27 +17,27 @@ namespace lab3
             if (card == null)
                 throw new ArgumentException("Неверная карта");
 
-            if (deck.Contains(card))
+            if (cards.Contains(card))
                 throw new ArgumentException($"Карта {card.Name} уже в колоде. Выберите другую карту.");
 
-            if (deck.Count >= 15)
+            if (cards.Count >= 15)
                 throw new ArgumentException("Колода уже полная");
 
-            deck.Add(card);
+            cards.Add(card);
 
         }
 
         public bool RemoveCard(Card card)
         {
-            return deck.Remove(card);
+            return cards.Remove(card);
         }
 
         public Card TakeFirst()
         {
-            if (deck.Count == 0)
+            if (cards.Count == 0)
                 return null;
 
-            Card card = deck[0];
+            Card card = cards[0];
             RemoveCard(card);
             return card;
         }
@@ -45,7 +45,7 @@ namespace lab3
         public void Shuffle()
         {
             Random rnd = new Random();
-            int n = deck.Count;
+            int n = cards.Count;
 
             for (int i = 0; i < n - 1; i++)
             {
@@ -53,9 +53,9 @@ namespace lab3
 
                 if (j != i)
                 {
-                    Card temp = deck[i];
-                    deck[i] = deck[j];
-                    deck[j] = temp;
+                    Card temp = cards[i];
+                    cards[i] = cards[j];
+                    cards[j] = temp;
                 }
             }
         }
