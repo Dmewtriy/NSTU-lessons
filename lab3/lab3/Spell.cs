@@ -28,8 +28,6 @@ namespace lab3
             }
         }
 
-        public abstract void UseSpell(Mob enemy);
-
         public override string ToString()
         {
             return base.ToString() + $" Effect-{Effect}";

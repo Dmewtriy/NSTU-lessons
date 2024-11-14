@@ -5,7 +5,7 @@ namespace lab3
     // улучшение атаки союзных карт
     internal class UpgradeAttackSpell : Spell
     {
-        public override void UseSpell(Mob teammate)
+        public override void Action(Mob teammate)
         {
             teammate.Damage += Effect;
         }

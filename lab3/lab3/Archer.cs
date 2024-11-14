@@ -2,7 +2,7 @@
 {
     internal class Archer : Mob, Interfaces.IGetDamage
     {
-        public override void Attack(Mob enemy)
+        public override void Action(Mob enemy)
         {
             enemy.GetDamage(this);
         }

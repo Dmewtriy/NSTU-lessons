@@ -27,8 +27,6 @@ namespace lab3
             }
         }
 
-        public abstract void Attack(Mob enemy);
-
         public abstract void GetDamage(Archer archer);
         public abstract void GetDamage(Fly fly);
         public abstract void GetDamage(Mage mage);

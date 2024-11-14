@@ -52,5 +52,7 @@ namespace lab3
         {
             return MemberwiseClone();
         }
+
+        public abstract void Action(Mob enemy);
     }
 }

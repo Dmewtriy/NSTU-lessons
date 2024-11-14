@@ -19,7 +19,7 @@ namespace lab3
                 else throw new ArgumentOutOfRangeException("Неверное значение времени действия: принимает целые значения от 1 до 2 (включительно)");
             }
         }
-        public override void UseSpell(Mob enemy)
+        public override void Action(Mob enemy)
         {
             int baseDamage = enemy.Damage;
             ApplyEffect(enemy);
