@@ -81,6 +81,7 @@
     <Compile Include="Deck.cs" />
     <Compile Include="DeckPrint.cs" />
     <Compile Include="Fly.cs" />
+    <Compile Include="Interfaces\IGameStatus.cs" />
     <Compile Include="Interfaces\IGetDamage.cs" />
     <Compile Include="Interfaces\IPersistence.cs" />
     <Compile Include="LowAttackSpell.cs" />
@@ -89,12 +90,15 @@
     <Compile Include="Melee.cs" />
     <Compile Include="Mob.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="PlayerAction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Spell.cs" />
+    <Compile Include="StartGame.cs" />
     <Compile Include="Tank.cs" />
     <Compile Include="UpgradeAttackSpell.cs" />
+    <Compile Include="WaitingForOpponentAction.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
