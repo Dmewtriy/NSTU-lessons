@@ -81,6 +81,7 @@
     <Compile Include="Deck.cs" />
     <Compile Include="DeckPrint.cs" />
     <Compile Include="Fly.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="Interfaces\IGameStatus.cs" />
     <Compile Include="Interfaces\IGetDamage.cs" />
     <Compile Include="Interfaces\IPersistence.cs" />
