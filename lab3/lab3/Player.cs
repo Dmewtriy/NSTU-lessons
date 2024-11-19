@@ -5,9 +5,9 @@ namespace lab3
 {
     internal class Player
     {
-        private int health;
+        /*private int health;
         private int exp;  // опыт получаемый в конце игры при победе равный количеству убитых Mob
-        private int level = 1; // уровень повышается когда exp равен 10+level*2
+        private int level = 1; // уровень повышается когда exp равен 10+level*2*/
         private string name;
         private Deck deck;
         public string Name 
@@ -25,7 +25,7 @@ namespace lab3
                 else throw new ArgumentException("Неверное имя");
             }
         }
-        public int Health
+        /*public int Health
         {
             get { return health; }
             set
@@ -33,25 +33,30 @@ namespace lab3
                 if (value > 0 && value <= 100) health = value;
                 else throw new ArgumentOutOfRangeException("Неверное значение здоровья игрока");
             }
-        }
+        }*/
 
-        public Player()
+        public Player(Deck d)
         {
-            deck = new Deck();
+            deck = d;
         }
 
-        public int Exp { get;  }
-        public int Level { get; }
+        /*public int Exp { get;  }
+        public int Level { get; }*/
 
-        public List<Card> Deck
+        public Deck Deck
         {
             get
             {
-                return deck.Cards;
+                return deck;
             }
         }
 
-        public void GetExp(int exp) // функция получает опыт в конце игры и увеличивает уровень, если опыта достаточно
+        public void Action(Card selectedCard, Mob defender)
+        {
+            selectedCard.Action(defender);
+        }
+
+        /*public void GetExp(int exp) // функция получает опыт в конце игры и увеличивает уровень, если опыта достаточно
         {
             if (exp > 0)
             {
@@ -63,7 +68,7 @@ namespace lab3
                 }
             }
             else throw new ArgumentOutOfRangeException("Значение для повышения опыта не может быть отрицательным");
-        }
+        }*/
 
     }
 }
