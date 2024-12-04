@@ -44,5 +44,22 @@ namespace lab3
                 player2 = value;
             }
         }
+
+        public Game(Player player1, Player player2)
+        {
+            Player1 = player1;
+            Player2 = player2;
+            currentStatus = new StartGame();
+        }
+
+        public void StartGame()
+        {
+            currentStatus = new PlayerAction();
+        }
+
+        public void PerformAction(Card attacker, Mob defender)
+        {
+            currentStatus.Action(attacker, defender);
+        }
     }
 }
