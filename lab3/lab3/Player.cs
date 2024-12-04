@@ -7,8 +7,35 @@ namespace lab3
     {
         private string name;
         private Deck deck;
-        public Settings settings;
         private int coins;
+        private int maxCoins;
+        private List<Card> cardsInHand;
+        public List<Card> CardsInHand => cardsInHand;
+        public void TakeCard()
+        {
+            while (cardsInHand.Count < maxNumCardOnTable && deck.Cards.Count > 0)
+                cardsInHand.Add(Deck.TakeFirst());
+        }
+        public int MaxCoins
+        {
+            get { return maxCoins; }
+            set 
+            {
+                if (value <= 0) throw new ArgumentOutOfRangeException("Максимальное количество монет должно быть положительным");
+                maxCoins = value;
+            }
+        }
+
+        private int maxNumCardOnTable;
+        public int MaxNumCardOnTable
+        {
+            get { return maxNumCardOnTable; }
+            set
+            {
+                if (value <= 0) throw new ArgumentOutOfRangeException("Максимальное количество карт \"в руке\" должно быть положительным");
+                maxNumCardOnTable = value;
+            }
+        }
 
         public string Name 
         {  
@@ -35,7 +62,7 @@ namespace lab3
                 {
                     throw new ArgumentException("Отрицательное значение переменной coins");
                 }
-                else if (value > settings.MaxCoins) 
+                else if (value > MaxCoins) 
                 {
                     throw new ArgumentException("Превышено максимальное значение coins");
                 }
@@ -53,6 +80,10 @@ namespace lab3
             get
             {
                 return deck;
+            }
+            set 
+            {
+                deck = value;
             }
         }
 

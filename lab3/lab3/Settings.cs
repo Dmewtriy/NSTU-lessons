@@ -17,13 +17,13 @@ namespace lab3
             } 
             set 
             {
-                if (value > 7)
+                if (value > 0)
                 {
                     maxCoins = value;
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Неверное значение максимального количества монет: принимает целые значения от 8 (включительно)");
+                    throw new ArgumentOutOfRangeException("Неверное значение максимального количества монет");
                 }
             }
         }

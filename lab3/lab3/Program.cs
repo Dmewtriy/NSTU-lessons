@@ -1,4 +1,5 @@
-﻿using System.CodeDom.Compiler;
+﻿using System;
+using System.CodeDom.Compiler;
 
 namespace lab3
 {
@@ -12,20 +13,13 @@ namespace lab3
             foreach (Card card in allCards.Cards) 
             { 
                 deck1.AddCard(card.Clone() as Card);
-                deck2.AddCard(card.Clone() as Card);
             }
             Player player1 = new Player(deck1);
             Player player2 = new Player(deck2);
-       
-
-            
-
-            Game game = new Game(player1, player2, new Settings(10, 10, 10));
-
-
-            game.StartGame();
-            game.PerformAction(player1.Deck.Cards[0], player2.Deck.Cards[2] as Mob);
-
+            Settings settings = new Settings();
+            Game game = new Game(player1, player2, settings);
+            player1.CardsInHand.Remove(player1.Deck.Cards[0]);
+            int a = 5;
         }
     }
 }

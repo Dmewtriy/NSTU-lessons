@@ -10,7 +10,7 @@ namespace lab3
     {
         private Interfaces.IGameStatus currentStatus;
 
-      
+        
         public Interfaces.IGameStatus CurrentStatus
         {
             get
@@ -49,10 +49,10 @@ namespace lab3
 
         public Game(Player player1, Player player2, Settings settings)
         {
-            player1.settings = settings;
-            player2.settings = settings;
-            player1.Deck.settings = settings;
-            player2.Deck.settings = settings;
+            player1.MaxCoins = settings.MaxCoins;
+            player2.MaxCoins = settings.MaxCoins;
+            player1.Deck.MaxDeckSize = settings.SizeDeck;
+            player2.Deck.MaxDeckSize = settings.SizeDeck;
 
 
             Player1 = player1;

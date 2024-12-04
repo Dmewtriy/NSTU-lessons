@@ -5,9 +5,20 @@ namespace lab3
 {
     internal class Deck
     {
-        public Settings settings;
         private List<Card> cards;
         public List<Card> Cards => cards;
+
+        private int maxDeckSize;
+        public int MaxDeckSize
+        {
+            get { return maxDeckSize; }
+            set 
+            {
+                if (value <= 0) throw new ArgumentOutOfRangeException("Максимальное количество карт в колоде должно быть положительным");
+                maxDeckSize = value;
+            }
+        }
+
         public Deck()
         {
             cards = new List<Card>();
@@ -21,7 +32,7 @@ namespace lab3
             if (cards.Contains(card))
                 throw new ArgumentException($"Карта {card.Name} уже в колоде. Выберите другую карту.");
 
-            if (cards.Count >= settings.SizeDeck)
+            if (cards.Count >= 0)
                 throw new ArgumentException("Колода уже полная");
 
             cards.Add(card);
