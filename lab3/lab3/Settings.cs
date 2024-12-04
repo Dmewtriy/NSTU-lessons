@@ -6,7 +6,7 @@ namespace lab3
     internal class Settings
     {
         private int maxCoins; // максимальное число монет
-        private int numMapsOnTable; //  максимальное число карт в "руках"
+        private int numCardOnTable; //  максимальное число карт в "руках"
         private int sizeDeck; // размер колоды
         
         public int MaxCoins
@@ -32,13 +32,13 @@ namespace lab3
         {
             get
             {
-                return numMapsOnTable;
+                return numCardOnTable;
             }
             set
             {
                 if (value > 0 && value <= sizeDeck)
                 {
-                    numMapsOnTable = value;
+                    numCardOnTable = value;
                 }
                 else
                 {
@@ -55,7 +55,7 @@ namespace lab3
             }
             set
             {
-                if (value > numMapsOnTable && value > 0 && value < 25)
+                if (value > numCardOnTable && value > 0 && value < 25)
                 {
                     sizeDeck = value;
                 }
