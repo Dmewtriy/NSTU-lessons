@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace lab3
 {
@@ -33,12 +27,15 @@ namespace lab3
             }
         }
 
-        public abstract void Attack(Mob enemy);
-
         public abstract void GetDamage(Archer archer);
         public abstract void GetDamage(Fly fly);
         public abstract void GetDamage(Mage mage);
         public abstract void GetDamage(Melee melee);
         public abstract void GetDamage(Tank tank);
+
+        public override string ToString()
+        {
+            return base.ToString() + $" Hp-{hp} Damage-{damage}";
+        }
     }
 }

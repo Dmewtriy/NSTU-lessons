@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace lab3
+﻿namespace lab3
 {
     internal class Fly : Mob, Interfaces.IGetDamage
     {
-        public override void Attack(Mob enemy)
+        public override void Action(Mob enemy)
         {
             enemy.GetDamage(this);
         }

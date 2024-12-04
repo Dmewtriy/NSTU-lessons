@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace lab3
 {
-    internal abstract class Card
+    internal abstract class Card : ICloneable
     {
-        public string Type => GetType().Name;
         protected int price;
         public int Price
         {
@@ -47,5 +42,17 @@ namespace lab3
                 else throw new ArgumentException("Неверное описание");
             }
         }
+
+        public override string ToString()
+        {
+            return $"{name} {GetType().Name} Price-{price}";
+        }
+
+        public object Clone()
+        {
+            return MemberwiseClone();
+        }
+
+        public abstract void Action(Mob enemy);
     }
 }

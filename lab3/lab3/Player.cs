@@ -1,20 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace lab3
 {
     internal class Player
     {
-        private int health;
-        private int exp;  // опыт получаемый в конце игры при победе равный количеству убитых Mob
-        private int level = 1; // уровень повышается когда exp равен 10+level*2
         private string name;
-        private Deck deckFinal;
+        private Deck deck;
         public string Name 
         {  
             get
@@ -30,51 +22,25 @@ namespace lab3
                 else throw new ArgumentException("Неверное имя");
             }
         }
-        public int Health
+
+        public Player(Deck d)
         {
-            get { return health; }
-            set
-            {
-                if (value > 0 && value <= 100) health = value;
-                else throw new ArgumentOutOfRangeException("Неверное значение здоровья игрока");
-            }
+            deck = d;
         }
 
-        public Player()
-        {
-            deckFinal = new Deck();
-            deckFinal.CreateDeck();
-        }
-
-        public int Exp { get;  }
-        public int Level { get; }
-
-        public List<Card> Deck
+        public Deck Deck
         {
             get
             {
-                return deckFinal.DeckFinal;
+                return deck;
             }
         }
 
-        public void ChangeDeck()
+        public void Action(Card selectedCard, Mob defender)
         {
-            deckFinal.ModifyDeck();
+            selectedCard.Action(defender);
         }
 
-        public void GetExp(int exp) // функция получает опыт в конце игры и увеличивает уровень, если опыта достаточно
-        {
-            if (exp > 0)
-            {
-                this.exp += exp;
-                while (this.exp >= 10 + level * 2)
-                {
-                    this.exp -= (10 + level * 2);
-                    level++;
-                }
-            }
-            else throw new ArgumentOutOfRangeException("Значение для повышения опыта не может быть отрицательным");
-        }
 
     }
 }
