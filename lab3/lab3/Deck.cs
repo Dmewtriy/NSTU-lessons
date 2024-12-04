@@ -36,9 +36,8 @@ namespace lab3
                 throw new ArgumentException("Колода уже полная");
 
             cards.Add(card);
-
         }
-
+        
         public bool RemoveCard(Card card)
         {
             return cards.Remove(card);
