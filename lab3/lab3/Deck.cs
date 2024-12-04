@@ -26,21 +26,21 @@ namespace lab3
 
             cards.Add(card);
         }
-        public void AddCard(Card card1, Card card2)
+        public void ReplaceCard(Card card1, Card card2)
         {
-            if (card1 == null || card2 == null)
+            if (card2 == null)
+            {
                 throw new ArgumentException("Неверная карта");
-            if (cards.Contains(card1))
-                throw new ArgumentException($"Карта {card1.Name} уже в колоде. Выберите другую карту.");
+            }
             if (cards.Contains(card2))
-                throw new ArgumentException($"Карта {card2.Name} уже в колоде. Выберите другую карту.");
-
-            if (RemoveCard(card1)) 
+            {
+                throw new ArgumentException($"Карта {card1.Name} уже в колоде. Выберите другую карту.");
+            }
+            if (RemoveCard(card2)) 
             {
                 throw new ArgumentException($"Метод удаления карты не сработал");
             }
-            AddCard(card2);
-            
+            AddCard(card1);   
         }
         public bool RemoveCard(Card card)
         {
