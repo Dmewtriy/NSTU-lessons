@@ -34,7 +34,7 @@ namespace lab3
             }
             if (cards.Contains(card2))
             {
-                throw new ArgumentException($"Карта {card1.Name} уже в колоде. Выберите другую карту.");
+                throw new ArgumentException($"Карта {card2.Name} уже в колоде. Выберите другую карту.");
             }
             if (RemoveCard(card2)) 
             {
