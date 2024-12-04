@@ -5,7 +5,26 @@ namespace program_lab2
     // Класс Журнал
     public class Magazine : PrintedEdition
     {
-        public string Topic { get; }
+        private string topic;
+        public string Topic
+        {
+            get
+            {
+                return topic;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value)) 
+                {
+                    throw new ArgumentException("Атрибут topic. Пустая строка");
+                }
+                else
+                {
+                    topic = value;
+                }
+            }
+
+        }
 
         public Magazine(string title, int year, Publishing publishingHouse, string topic)
         : base(title, year, null, publishingHouse) // У журналов может не быть автора

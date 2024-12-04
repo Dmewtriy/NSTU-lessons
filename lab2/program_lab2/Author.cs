@@ -3,7 +3,19 @@
     // Класс Автор
     public class Author : Person
     {
-        public Genres FavoriteGenre { get; }
+        private Genres favoriteGenre;
+        public Genres FavoriteGenre
+        {
+            get
+            {
+                return favoriteGenre;
+            }
+            set 
+            {
+                if (value.) { }
+            }
+        }
+
         public Author(string name, int age, Genres favoriteGenre) : base(name, age)
         {
             FavoriteGenre = favoriteGenre;

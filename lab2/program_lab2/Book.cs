@@ -11,7 +11,18 @@ namespace program_lab2
     // Класс Книга
     public class Book : PrintedEdition
     {
-        public Genres Genre { get; }
+        private Genres genre;
+        public Genres Genre 
+        { 
+            get
+            {
+                return genre;
+            }
+            set
+            {
+                genre = value;
+            }
+        }
         public Book(string Title, int Year, Author Author, Publishing Publishing, Genres Genre) : base(Title, Year, Author, Publishing)
         {
             this.Genre = Genre;
