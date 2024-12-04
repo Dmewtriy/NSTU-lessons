@@ -5,6 +5,7 @@ namespace lab3
 {
     internal class Deck
     {
+        public Settings settings;
         private List<Card> cards;
         public List<Card> Cards => cards;
         public Deck()
@@ -20,7 +21,7 @@ namespace lab3
             if (cards.Contains(card))
                 throw new ArgumentException($"Карта {card.Name} уже в колоде. Выберите другую карту.");
 
-            if (cards.Count >= 15)
+            if (cards.Count >= settings.SizeDeck)
                 throw new ArgumentException("Колода уже полная");
 
             cards.Add(card);

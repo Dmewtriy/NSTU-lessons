@@ -7,8 +7,9 @@ namespace lab3
     {
         private string name;
         private Deck deck;
-        private Settings settings;
+        public Settings settings;
         private int coins;
+
         public string Name 
         {  
             get

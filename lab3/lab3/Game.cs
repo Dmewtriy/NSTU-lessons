@@ -9,6 +9,8 @@ namespace lab3
     internal class Game
     {
         private Interfaces.IGameStatus currentStatus;
+
+      
         public Interfaces.IGameStatus CurrentStatus
         {
             get
@@ -45,10 +47,17 @@ namespace lab3
             }
         }
 
-        public Game(Player player1, Player player2)
+        public Game(Player player1, Player player2, Settings settings)
         {
+            player1.settings = settings;
+            player2.settings = settings;
+            player1.Deck.settings = settings;
+            player2.Deck.settings = settings;
+
+
             Player1 = player1;
             Player2 = player2;
+
             currentStatus = new StartGame();
         }
 

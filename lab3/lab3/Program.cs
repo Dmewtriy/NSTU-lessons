@@ -16,7 +16,13 @@ namespace lab3
             }
             Player player1 = new Player(deck1);
             Player player2 = new Player(deck2);
-            Game game = new Game(player1, player2);
+       
+
+            
+
+            Game game = new Game(player1, player2, new Settings(10, 10, 10));
+
+
             game.StartGame();
             game.PerformAction(player1.Deck.Cards[0], player2.Deck.Cards[2] as Mob);
 

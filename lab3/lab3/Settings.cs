@@ -28,7 +28,7 @@ namespace lab3
             }
         }
 
-        public int NumMapsOnTable
+        public int NumCardOnTable
         {
             get
             {
@@ -55,7 +55,7 @@ namespace lab3
             }
             set
             {
-                if (value > numCardOnTable && value > 0 && value < 25)
+                if (value > numCardOnTable && value > 0)
                 {
                     sizeDeck = value;
                 }
@@ -68,13 +68,13 @@ namespace lab3
         public Settings()
         {
             MaxCoins = 12;
-            NumMapsOnTable = 5;
+            NumCardOnTable = 5;
             SizeDeck = 15;
         }
         public Settings(int _maxCoins, int _numMapsOnTable, int _sizeDeck) 
         {
             MaxCoins = _maxCoins;
-            NumMapsOnTable = _numMapsOnTable;
+            NumCardOnTable = _numMapsOnTable;
             SizeDeck = _sizeDeck;
         }
 
