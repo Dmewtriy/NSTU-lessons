@@ -5,10 +5,58 @@ namespace program_lab2
     // Абстрактный класс Печатное издание
     public abstract class PrintedEdition
     {
-        public string Title { get;}
-        public int Year { get;}
-        public Author Author { get;}
-        public Publishing Publishing { get;}
+        private string title;
+        private int year;
+        private Author author;
+        private Publishing publishing;
+        public string Title
+        {
+            get { return title; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Название книги не может быть пустым.");
+                }
+                title = value;
+            }
+        }
+
+        public int Year
+        {
+            get { return year; }
+            private set
+            {
+                if (value <= 0 || value > DateTime.Now.Year)
+                {
+                    throw new ArgumentException("Год должен быть положительным числом и не больше текущего года.");
+                }
+                year = value;
+            }
+        }
+
+        public Author Author
+        {
+            get { return author; }
+            private set
+            {
+                author = value;
+            }
+        }
+
+        public Publishing Publishing
+        {
+            get { return publishing; }
+            private set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentNullException("Издательство не может быть null.");
+                }
+                publishing = value;
+            }
+        }
+
 
         public PrintedEdition(string title, int year, Author author, Publishing publishing)
         {
@@ -17,8 +65,6 @@ namespace program_lab2
             Author = author;
             Publishing = publishing;
         }
-
-
 
         // Виртуальный метод для получения информации о печатном издании
         public virtual void Read()
