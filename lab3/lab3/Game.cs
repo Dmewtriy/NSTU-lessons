@@ -8,21 +8,6 @@ namespace lab3
 {
     internal class Game
     {
-        private Interfaces.IGameStatus currentStatus;
-
-        
-        public Interfaces.IGameStatus CurrentStatus
-        {
-            get
-            {
-                return currentStatus;
-            }
-            set
-            {
-                if (value == null) { throw new ArgumentNullException("Текущее состояние игры не может быть null"); }
-                currentStatus = value;
-            }
-        }
         private Player player1;
         private Player player2;
         public Player Player1
@@ -47,30 +32,10 @@ namespace lab3
             }
         }
 
-        public Game(Player player1, Player player2, Settings settings)
+        public Game(Player player1, Player player2)
         {
-            player1.MaxCoins = settings.MaxCoins;
-            player2.MaxCoins = settings.MaxCoins;
-            player1.MaxNumCardOnTable = settings.NumCardOnTable;
-            player2.MaxNumCardOnTable = settings.NumCardOnTable;
-            player1.Deck.MaxDeckSize = settings.SizeDeck;
-            player2.Deck.MaxDeckSize = settings.SizeDeck;
-
-
             Player1 = player1;
             Player2 = player2;
-
-            currentStatus = new StartGame();
-        }
-
-        public void StartGame()
-        {
-            currentStatus = new PlayerAction();
-        }
-
-        public void PerformAction(Card attacker, Mob defender)
-        {
-            currentStatus.Action(attacker, defender);
         }
     }
 }
