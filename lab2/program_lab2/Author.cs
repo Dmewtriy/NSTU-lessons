@@ -12,7 +12,7 @@
             }
             set 
             {
-                if (value.) { }
+                favoriteGenre = value;
             }
         }
 

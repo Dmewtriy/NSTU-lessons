@@ -1,5 +1,6 @@
 ﻿using System;
 using System.CodeDom.Compiler;
+using System.Collections.Generic;
 
 namespace lab3
 {
@@ -23,6 +24,8 @@ namespace lab3
             player1.TakeCard();
             player1.CardsInHand.Remove(player1.CardsInHand[0]);
             int a = 5;
+            
         }
     }
 }
+

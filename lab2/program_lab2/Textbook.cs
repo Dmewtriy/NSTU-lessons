@@ -1,11 +1,24 @@
 ﻿using System;
+using System.Xml.Linq;
 
 namespace program_lab2
 {
     // Класс Учебник (бесплодный класс)
     public sealed class Textbook : PrintedEdition
     {
-        public string Subject { get; }
+        private string subject;
+        public string Subject
+        {
+            get { return subject; }
+            private set
+            {
+                 if (string.IsNullOrEmpty(value))
+                 {
+                    throw new ArgumentException("Название предмета не может быть пустым или состоять из пробелов.");
+                 }       
+                subject = value;
+            }   
+        }
 
         public Textbook(string Title, int Year, Author Author, Publishing Publishing, string Subject) : base(Title, Year, Author, Publishing)
         {

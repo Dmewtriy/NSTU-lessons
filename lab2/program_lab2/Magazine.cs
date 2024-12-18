@@ -16,7 +16,7 @@ namespace program_lab2
             {
                 if (string.IsNullOrEmpty(value)) 
                 {
-                    throw new ArgumentException("Атрибут topic. Пустая строка");
+                    throw new ArgumentException("Нельзя установить пустую строку");
                 }
                 else
                 {

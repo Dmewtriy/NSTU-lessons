@@ -88,9 +88,17 @@ namespace lab3
             }
         }
 
-        public void Action(Card selectedCard, Mob defender)
+        public bool Action(Card selectedCard, Mob defender)
         {
-            selectedCard.Action(defender);
+            try
+            {
+                selectedCard.Action(defender);
+            }
+            catch
+            {
+                return false; // hp <= 0 
+            }
+            return true; // hp > 0
         }
 
 

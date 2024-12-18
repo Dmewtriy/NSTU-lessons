@@ -1,17 +1,43 @@
-﻿namespace program_lab2
+﻿using System;
+
+namespace program_lab2
 {
     // Класс Издательство
     public class Publishing
     {
-        public string Name { get; }
-        public string Address { get; }
+        private string name;
+        private string address;
 
-        public Publishing(string name, string address)
+        public string Name
         {
-            Name = name;
-            Address = address;
+            get { return name; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Имя не может быть пустым или состоять из пробелов.");
+                }
+                name = value;
+            }
         }
 
+        public string Address
+        {
+            get { return address; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Адрес не может быть пустым или состоять из пробелов.");
+                }
+                address = value;
+            }
+        }
+        public Publishing(string name, string address) 
+        { 
+            Name = name;
+            Address = address;  
+        }
         public override string ToString()
         {
             return $"Publishing: {Name}, Address: {Address}";
