@@ -21,7 +21,10 @@ namespace lab3
         {
             btnNewGame = new Button();
             btnLoadGame = new Button();
+            btnExist = new Button();
+
             SuspendLayout();
+            
             // 
             // btnNewGame
             // 
@@ -43,11 +46,22 @@ namespace lab3
             btnLoadGame.UseVisualStyleBackColor = true;
             btnLoadGame.Click += new System.EventHandler(btnLoadGame_Click);
             // 
+            // btnExist
+            //
+            btnExist.Location = new System.Drawing.Point(100, 190);
+            btnExist.Name = "btnExist";
+            btnExist.Size = new System.Drawing.Size(200, 50);
+            btnExist.TabIndex = 0;
+            btnExist.Text = "Выйти";
+            btnExist.UseVisualStyleBackColor = true;
+            btnExist.Click += new System.EventHandler(btnExist_Click);
+            // 
             // MainForm
             // 
-            ClientSize = new System.Drawing.Size(400, 250);
+            ClientSize = new System.Drawing.Size(400, 300);
             Controls.Add(btnLoadGame);
             Controls.Add(btnNewGame);
+            Controls.Add(btnExist);
             Name = "MainForm";
             Text = "Главное меню";
             ResumeLayout(false);
@@ -67,8 +81,14 @@ namespace lab3
             loadGame.Show();
             Hide(); // Скрыть MainForm
         }
+        private void btnExist_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
 
         private Button btnNewGame;
         private Button btnLoadGame;
+        private Button btnExist;
     }
 }
