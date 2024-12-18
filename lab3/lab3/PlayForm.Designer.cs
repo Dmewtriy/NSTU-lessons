@@ -1,6 +1,8 @@
-﻿namespace lab3
+﻿using System.Windows.Forms;
+
+namespace lab3
 {
-    partial class PlayForm
+    partial class PlayForm : Form
     {
         /// <summary>
         /// Required designer variable.

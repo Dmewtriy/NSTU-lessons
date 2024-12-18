@@ -4,9 +4,9 @@ using System.IO;
 
 namespace lab3
 {
-    internal class Game
+    public class Game
     {
-        private readonly AllCards allCards = new AllCards();
+        public AllCards allCards { get; } = new AllCards();
         private Player player1;
         private Player player2;
         public Player Player1
@@ -39,9 +39,9 @@ namespace lab3
 
         public void SaveGame()
         {
-            string fileName = $"{DateTime.Now}.json";
+            string fileName = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".json";
             string filePath = "..\\..\\..\\gameSave\\" + fileName;
-            var options = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.All };
+            var options = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.All , Formatting = Formatting.Indented};
             string json = JsonConvert.SerializeObject(this, options);
             File.WriteAllText(filePath, json);
         }

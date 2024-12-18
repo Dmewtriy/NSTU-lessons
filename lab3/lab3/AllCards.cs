@@ -2,7 +2,7 @@
 
 namespace lab3
 {
-    internal class AllCards
+    public class AllCards
     {
         public List<Card> Cards { get; }
 

@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿/*using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -218,12 +218,12 @@ namespace lab3
             }
         }
 
-        /*private void SaveGameState()
+        *//*private void SaveGameState()
         {
             // Сохранение состояния игры в файл
             var json = JsonConvert.SerializeObject(game);
             File.WriteAllText("gameState.json", json);
-        }*/
+        }*//*
 
         private Deck GenerateRandomDeck()
         {
@@ -257,3 +257,4 @@ namespace lab3
     }
 }
 
+*/

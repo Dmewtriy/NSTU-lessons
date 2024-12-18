@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -71,3 +71,4 @@ namespace lab3
         private Button btnLoadGame;
     }
 }
+*/

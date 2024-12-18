@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace lab3
 {
-    internal class Player
+    public class Player
     {
         private string name;
         private Deck deck;

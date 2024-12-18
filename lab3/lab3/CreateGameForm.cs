@@ -21,126 +21,194 @@ namespace lab3
         private ListBox player2Cards;
         private ListBox allCards;
 
-        private Button btnAddCardPlayer1Player1;
-        private Button btnAddCardPlayer1Player2;
-        private Button btnRemoveCardPlayer1Player1;
-        private Button btnRemoveCardPlayer1Player2;
-        public CreateGameForm()
+        private Button btnAddCardPlayer1;
+        private Button btnAddCardPlayer2;
+        private Button btnRemoveCardPlayer1;
+        private Button btnRemoveCardPlayer2;
+
+        private Button save;
+        public CreateGameForm(Game game)
         {
-            InitializeComponent();
+            InitializeComponent(game);
+            UpdateCardLists(game);
         }
-        private void InitializeComponent()
+        private void InitializeComponent(Game game)
         {
             allCards = new ListBox();
             player1Cards = new ListBox();
             player2Cards = new ListBox();
-            lblPlayer1Name = new Label() { Text = "Имя игрока 1" };
-            lblPlayer2Name = new Label() { Text = "Имя игрока 2" };
-            btnAddCardPlayer1Player1 = new Button();
-            btnRemoveCardPlayer1Player1 = new Button();
-            btnAddCardPlayer1Player2 = new Button();
-            btnRemoveCardPlayer1Player2 = new Button();
+            lblPlayer1Name = new Label() { Text = "Имя игрока 1", Location = new Point(12, 5), BorderStyle = BorderStyle.FixedSingle};
+            txtPlayer1Name = new TextBox() { Location = new Point(120, 5) , Text = "Player 1"};
+            lblPlayer2Name = new Label() { Text = "Имя игрока 2", Location = new Point(400, 5), BorderStyle = BorderStyle.FixedSingle };
+            txtPlayer2Name = new TextBox() { Location = new Point(508, 5) , Text = "Player 2" };
+            btnAddCardPlayer1 = new Button();
+            btnRemoveCardPlayer1 = new Button();
+            btnAddCardPlayer2 = new Button();
+            btnRemoveCardPlayer2 = new Button();
+            save = new Button() { Text = "Сохранить", Location = new Point(350, 450) };
 
             SuspendLayout();
             //
             // allCards
             //
             allCards.FormattingEnabled = true;
-            allCards.Location = new System.Drawing.Point(12, 12);
+            allCards.Location = new System.Drawing.Point(194, 250);
             allCards.Name = "allCards";
-            allCards.Size = new System.Drawing.Size(200, 150);
+            allCards.Size = new System.Drawing.Size(370, 150);
             allCards.TabIndex = 0;
             // 
             // player1Cards
             // 
             player1Cards.FormattingEnabled = true;
-            player1Cards.Location = new System.Drawing.Point(12, 12);
+            player1Cards.Location = new System.Drawing.Point(12, 30);
             player1Cards.Name = "player1Cards";
-            player1Cards.Size = new System.Drawing.Size(200, 150);
+            player1Cards.Size = new System.Drawing.Size(370, 150);
             player1Cards.TabIndex = 0;
             // 
             // player2Cards
             // 
             player2Cards.FormattingEnabled = true;
-            player2Cards.Location = new System.Drawing.Point(250, 12);
+            player2Cards.Location = new System.Drawing.Point(400, 30);
             player2Cards.Name = "player2Cards";
-            player2Cards.Size = new System.Drawing.Size(200, 150);
+            player2Cards.Size = new System.Drawing.Size(370, 150);
             player2Cards.TabIndex = 1;
             // 
             // btnAddCardPlayer1
             // 
-            this.btnAddCardPlayer1.Location = new System.Drawing.Point(220, 50);
+            this.btnAddCardPlayer1.Location = new System.Drawing.Point(12, 180);
             this.btnAddCardPlayer1.Name = "btnAddCardPlayer1";
-            this.btnAddCardPlayer1.Size = new System.Drawing.Size(20, 50);
+            this.btnAddCardPlayer1.Size = new System.Drawing.Size(50, 50);
             this.btnAddCardPlayer1.TabIndex = 2;
-            this.btnAddCardPlayer1.Text = "→";
+            this.btnAddCardPlayer1.Text = "+pl1";
             this.btnAddCardPlayer1.UseVisualStyleBackColor = true;
-            this.btnAddCardPlayer1.Click += new System.EventHandler(this.btnAddCardPlayer1_Click);
+            this.btnAddCardPlayer1.Click += (sender, e) => btnAddCardPlayer1_Click(game);
             // 
             // btnRemoveCardPlayer1
             // 
-            this.btnRemoveCardPlayer1.Location = new System.Drawing.Point(220, 120);
+            this.btnRemoveCardPlayer1.Location = new System.Drawing.Point(82, 180);
             this.btnRemoveCardPlayer1.Name = "btnRemoveCardPlayer1";
-            this.btnRemoveCardPlayer1.Size = new System.Drawing.Size(20, 50);
+            this.btnRemoveCardPlayer1.Size = new System.Drawing.Size(50, 50);
             this.btnRemoveCardPlayer1.TabIndex = 3;
-            this.btnRemoveCardPlayer1.Text = "←";
+            this.btnRemoveCardPlayer1.Text = "-pl1";
             this.btnRemoveCardPlayer1.UseVisualStyleBackColor = true;
-            this.btnRemoveCardPlayer1.Click += new System.EventHandler(this.btnRemoveCardPlayer1_Click);
+            this.btnRemoveCardPlayer1.Click += (sender, e) => btnRemoveCardPlayer1_Click(game);
             // 
             // btnAddCardPlayer2
             // 
-            this.btnAddCardPlayer2.Location = new System.Drawing.Point(220, 50);
+            this.btnAddCardPlayer2.Location = new System.Drawing.Point(400, 180);
             this.btnAddCardPlayer2.Name = "btnAddCardPlayer2";
-            this.btnAddCardPlayer2.Size = new System.Drawing.Size(20, 50);
+            this.btnAddCardPlayer2.Size = new System.Drawing.Size(50, 50);
             this.btnAddCardPlayer2.TabIndex = 2;
-            this.btnAddCardPlayer2.Text = "→";
+            this.btnAddCardPlayer2.Text = "+pl2";
             this.btnAddCardPlayer2.UseVisualStyleBackColor = true;
-            this.btnAddCardPlayer2.Click += new System.EventHandler(this.btnAddCardPlayer2_Click);
+            this.btnAddCardPlayer2.Click += (sender, e) => btnAddCardPlayer2_Click(game);
             // 
             // btnRemoveCardPlayer2
             // 
-            this.btnRemoveCardPlayer2.Location = new System.Drawing.Point(220, 120);
+            this.btnRemoveCardPlayer2.Location = new System.Drawing.Point(480, 180);
             this.btnRemoveCardPlayer2.Name = "btnRemoveCardPlayer2";
-            this.btnRemoveCardPlayer2.Size = new System.Drawing.Size(20, 50);
+            this.btnRemoveCardPlayer2.Size = new System.Drawing.Size(50, 50);
             this.btnRemoveCardPlayer2.TabIndex = 3;
-            this.btnRemoveCardPlayer2.Text = "←";
+            this.btnRemoveCardPlayer2.Text = "-pl2";
             this.btnRemoveCardPlayer2.UseVisualStyleBackColor = true;
-            this.btnRemoveCardPlayer2.Click += new System.EventHandler(this.btnRemoveCardPlayer2_Click);
+            this.btnRemoveCardPlayer2.Click += (sender, e) => btnRemoveCardPlayer2_Click(game);
 
-            ClientSize = new System.Drawing.Size(400, 250);
+            save.Click += (sender, e) => SaveGame(game);
+
+            ClientSize = new Size(800, 500);
             Controls.Add(allCards);
             Controls.Add(player1Cards);
             Controls.Add(player2Cards);
             Controls.Add(lblPlayer1Name);
+            Controls.Add(txtPlayer1Name);
             Controls.Add(lblPlayer2Name);
-            Controls.Add(btnAddCardPlayer1Player1);
-            Controls.Add(btnRemoveCardPlayer1Player1);
-            Controls.Add(btnAddCardPlayer1Player2);
-            Controls.Add(btnRemoveCardPlayer1Player2);
+            Controls.Add(txtPlayer2Name);
+            Controls.Add(btnAddCardPlayer1);
+            Controls.Add(btnRemoveCardPlayer1);
+            Controls.Add(btnAddCardPlayer2);
+            Controls.Add(btnRemoveCardPlayer2);
+            Controls.Add(save);
             Name = "MainForm";
             Text = "Главное меню";
             ResumeLayout(false);
+            FormClosed += (sender, e) => SaveGame(game);
         }
 
-        private void btnAddCardPlayer1_Click(object sender, EventArgs e)
+        private void btnAddCardPlayer1_Click(Game game)
         {
-            if (player1Cards.Items.Count < Deck.MaxDeckSize)
+            try
             {
-                Card selectedCard = (Card)allCards.SelectedItem;
-                if (selectedCard != null && !player1Cards.Contains(selectedCard))
-                {
-                    myCards.Add(selectedCard);
-                    UpdateCardLists();
-                }
-                else
-                {
-                    MessageBox.Show("Выберите карту из общего списка или карта уже в колоде.");
-                }
+                game.Player1.Deck.AddCard((Card)allCards.SelectedItem);
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("Достигнуто максимальное количество карт в колоде.");
+                MessageBox.Show(this, ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally
+            {
+                UpdateCardLists(game);
+            }
+        }
+        private void btnAddCardPlayer2_Click(Game game)
+        {
+            try
+            {
+                game.Player2.Deck.AddCard((Card)allCards.SelectedItem);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message);
+            }
+            finally
+            {
+                UpdateCardLists(game);
+            }
+        }
+        private void btnRemoveCardPlayer1_Click(Game game)
+        {
+            game.Player1.Deck.RemoveCard((Card)player1Cards.SelectedItem);
+            UpdateCardLists(game);
+        }
+        private void btnRemoveCardPlayer2_Click(Game game)
+        {
+            game.Player2.Deck.RemoveCard((Card)player2Cards.SelectedItem);
+            UpdateCardLists(game);
+        }
+
+        private Game SaveGame(Game game)
+        {
+            try
+            {
+                game.Player1.Name = txtPlayer1Name.Text;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(this, ex.Message);
+                game.Player1.Name = "Player 1";
+            }
+            try
+            {
+                game.Player2.Name = txtPlayer2Name.Text;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                game.Player2.Name = "Player 2";
+            }
+            game.Player1.Coins = 12;
+            game.Player2.Coins = 12;
+            game.SaveGame();
+            return game;
+        }
+
+        private void UpdateCardLists(Game game)
+        {
+            player1Cards.DataSource = null;
+            player1Cards.DataSource = game.Player1.Deck.Cards;
+            player2Cards.DataSource = null;
+            player2Cards.DataSource = game.Player2.Deck.Cards;
+            allCards.DataSource = null;
+            allCards.DataSource = game.allCards.Cards;
         }
     }
 }
