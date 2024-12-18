@@ -6,7 +6,7 @@ namespace lab3
 {
     public class Game
     {
-        public AllCards allCards { get; } = new AllCards();
+        public static AllCards allCards { get; } = new AllCards();
         private Player player1;
         private Player player2;
         public Player Player1
@@ -35,6 +35,14 @@ namespace lab3
         {
             Player1 = player1;
             Player2 = player2;
+            Player1.IsPlayerTurn = new Random().Next(2) == 0; // Случайный выбор, кто начинает
+            Player2.IsPlayerTurn = !Player1.IsPlayerTurn;
+        }
+
+        public void SwitchTurn()
+        {
+            Player1.IsPlayerTurn = !Player1.IsPlayerTurn;
+            Player2.IsPlayerTurn = !Player2.IsPlayerTurn;
         }
 
         public void SaveGame()
@@ -49,9 +57,9 @@ namespace lab3
         public Game LoadGame(string saveName) 
         {
             string[] saves = Directory.GetFiles("..\\..\\..\\gameSave");
-            string save = saves[Array.IndexOf(saves, saveName)];
+            string save = saves[Array.IndexOf(saves, "..\\..\\..\\gameSave\\" + saveName + ".json")];
             string jsonData;
-            var options = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.All };
+            var options = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.All , Formatting = Formatting.Indented };
             jsonData = File.ReadAllText(save);
             Game game = JsonConvert.DeserializeObject<Game>(jsonData, options);
             return game;

@@ -30,8 +30,5 @@ namespace lab3
         /// </summary>
 
         #endregion
-
-        private System.Windows.Forms.Label NamePlayer1;
-        private System.Windows.Forms.Label NamePlayer2;
     }
 }

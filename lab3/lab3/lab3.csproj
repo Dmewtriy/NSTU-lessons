@@ -115,7 +115,9 @@
     <Compile Include="Melee.cs" />
     <Compile Include="Mob.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="PlayForm.cs" />
+    <Compile Include="PlayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PlayForm.Designer.cs">
       <DependentUpon>PlayForm.cs</DependentUpon>
     </Compile>

@@ -61,8 +61,21 @@ namespace lab3
             }
         }
 
+        public void addCoinsPerRound(int count)
+        {
+            if (Coins + count > 12)
+            {
+                Coins = 12;
+            }
+            else
+            {
+                Coins += count;
+            }
+        }
+
         public bool Action(Card selectedCard, Mob defender)
         {
+            Coins -= selectedCard.Price;
             try
             {
                 selectedCard.Action(defender);

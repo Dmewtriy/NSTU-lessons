@@ -1,4 +1,4 @@
-﻿/*using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,247 +14,217 @@ namespace lab3
 {
     public partial class PlayForm : Form
     {
-        private Game game;
-        private List<Card> allCards; // Список всех доступных карт
-        private Random random;
+        private ListBox player1Cards;
+        private ListBox player2Cards;
+        private Label lblPlayer1Name;
+        private Label lblPlayer2Name;
+        private TextBox status;
+        private Button btnAttack;
+        private Button btnExit;
+        private Label lblPlayer1Coins;
+        private Label lblPlayer2Coins;
 
-        public PlayForm()
+        public PlayForm(Game game)
         {
-            InitializeComponent();
-            InitializeGame();
+            InitializeComponent(game);
+            UpdateGameUI(game);
         }
 
-        private void InitializeComponent()
+        private void InitializeComponent(Game game)
         {
-            this.listBoxMyCards = new ListBox();
-            this.listBoxOpponentCards = new ListBox();
+            this.player1Cards = new ListBox();
+            this.player2Cards = new ListBox();
+            lblPlayer1Name = new Label() { Text = game.Player1.Name };
+            lblPlayer2Name = new Label() { Text = game.Player2.Name };
             this.btnAttack = new Button();
             this.btnExit = new Button();
-            this.lblPlayerCoins = new Label();
-            this.lblOpponentCoins = new Label();
-            this.NamePlayer1 = new Label();
-            this.NamePlayer2 = new Label();
+            this.lblPlayer1Coins = new Label();
+            this.lblPlayer2Coins = new Label();
+            this.lblPlayer1Name = new Label();
+            this.lblPlayer2Name = new Label();
+            status = new TextBox() { ReadOnly = true, Location = new Point(380, 100), Size = new Size(121, 80)};
             this.SuspendLayout();
             // 
-            // listBoxMyCards
+            // player1Cards
             // 
-            this.listBoxMyCards.FormattingEnabled = true;
-            this.listBoxMyCards.Location = new System.Drawing.Point(12, 50);
-            this.listBoxMyCards.Name = "listBoxMyCards";
-            this.listBoxMyCards.Size = new System.Drawing.Size(194, 186);
-            this.listBoxMyCards.TabIndex = 0;
+            this.player1Cards.FormattingEnabled = true;
+            this.player1Cards.Location = new System.Drawing.Point(12, 50);
+            this.player1Cards.Name = "player1Cards";
+            this.player1Cards.Size = new System.Drawing.Size(370, 150);
+            this.player1Cards.TabIndex = 0;
             // 
-            // listBoxOpponentCards
+            // player2Cards
             // 
-            this.listBoxOpponentCards.FormattingEnabled = true;
-            this.listBoxOpponentCards.Location = new System.Drawing.Point(340, 50);
-            this.listBoxOpponentCards.Name = "listBoxOpponentCards";
-            this.listBoxOpponentCards.Size = new System.Drawing.Size(201, 186);
-            this.listBoxOpponentCards.TabIndex = 1;
+            this.player2Cards.FormattingEnabled = true;
+            this.player2Cards.Location = new System.Drawing.Point(500, 50);
+            this.player2Cards.Name = "player2Cards";
+            this.player2Cards.Size = new System.Drawing.Size(370, 150);
+            this.player2Cards.TabIndex = 1;
             // 
             // btnAttack
             // 
-            this.btnAttack.Location = new System.Drawing.Point(575, 220);
+            this.btnAttack.Location = new System.Drawing.Point(350, 200);
             this.btnAttack.Name = "btnAttack";
             this.btnAttack.Size = new System.Drawing.Size(172, 50);
             this.btnAttack.TabIndex = 2;
             this.btnAttack.Text = "Атаковать";
             this.btnAttack.UseVisualStyleBackColor = true;
-            this.btnAttack.Click += new System.EventHandler(this.btnAttack_Click);
+            this.btnAttack.Click += (sender, e) => btnAttack_Click(game);
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(575, 12);
+            this.btnExit.Location = new System.Drawing.Point(630, 245);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(172, 51);
             this.btnExit.TabIndex = 3;
-            this.btnExit.Text = "Выйти";
+            this.btnExit.Text = "Сохранить и выйти";
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnExit.Click += (sender, e) => btnExit_Click(game);
             // 
-            // lblPlayerCoins
+            // lblPlayer1Coins
             // 
-            this.lblPlayerCoins.AutoSize = true;
-            this.lblPlayerCoins.Location = new System.Drawing.Point(12, 31);
-            this.lblPlayerCoins.Name = "lblPlayerCoins";
-            this.lblPlayerCoins.Size = new System.Drawing.Size(45, 13);
-            this.lblPlayerCoins.TabIndex = 4;
-            this.lblPlayerCoins.Text = "Coins: 0";
+            this.lblPlayer1Coins.AutoSize = true;
+            this.lblPlayer1Coins.Location = new System.Drawing.Point(12, 30);
+            this.lblPlayer1Coins.Name = "lblPlayer1Coins";
+            this.lblPlayer1Coins.Size = new System.Drawing.Size(45, 13);
+            this.lblPlayer1Coins.TabIndex = 4;
+            this.lblPlayer1Coins.Text = $"Coins: {game.Player1.Coins}";
             // 
-            // lblOpponentCoins
+            // lblPlayer2Coins
             // 
-            this.lblOpponentCoins.AutoSize = true;
-            this.lblOpponentCoins.Location = new System.Drawing.Point(337, 31);
-            this.lblOpponentCoins.Name = "lblOpponentCoins";
-            this.lblOpponentCoins.Size = new System.Drawing.Size(45, 13);
-            this.lblOpponentCoins.TabIndex = 5;
-            this.lblOpponentCoins.Text = "Coins: 0";
+            this.lblPlayer2Coins.AutoSize = true;
+            this.lblPlayer2Coins.Location = new System.Drawing.Point(500, 30);
+            this.lblPlayer2Coins.Name = "lblPlayer2Coins";
+            this.lblPlayer2Coins.Size = new System.Drawing.Size(45, 13);
+            this.lblPlayer2Coins.TabIndex = 5;
+            this.lblPlayer2Coins.Text = $"Coins: {game.Player2.Coins}";
             // 
-            // NamePlayer1
+            // lblPlayer1Name
             // 
-            this.NamePlayer1.AutoSize = true;
-            this.NamePlayer1.Location = new System.Drawing.Point(12, 12);
-            this.NamePlayer1.Name = "NamePlayer1";
-            this.NamePlayer1.Size = new System.Drawing.Size(42, 13);
-            this.NamePlayer1.TabIndex = 6;
-            this.NamePlayer1.Text = "Player1";
-            this.NamePlayer1.Click += new System.EventHandler(this.label1_Click);
+            this.lblPlayer1Name.AutoSize = true;
+            this.lblPlayer1Name.Location = new System.Drawing.Point(12, 10);
+            this.lblPlayer1Name.Name = "lblPlayer1Name";
+            this.lblPlayer1Name.Size = new System.Drawing.Size(42, 13);
+            this.lblPlayer1Name.TabIndex = 6;
+            this.lblPlayer1Name.Text = game.Player1.Name;
             // 
-            // NamePlayer2
+            // lblPlayer2Name
             // 
-            this.NamePlayer2.AutoSize = true;
-            this.NamePlayer2.Location = new System.Drawing.Point(337, 11);
-            this.NamePlayer2.Name = "NamePlayer2";
-            this.NamePlayer2.Size = new System.Drawing.Size(42, 13);
-            this.NamePlayer2.TabIndex = 7;
-            this.NamePlayer2.Text = "Player2";
+            this.lblPlayer2Name.AutoSize = true;
+            this.lblPlayer2Name.Location = new System.Drawing.Point(500, 10);
+            this.lblPlayer2Name.Name = "lblPlayer2Name";
+            this.lblPlayer2Name.Size = new System.Drawing.Size(42, 13);
+            this.lblPlayer2Name.TabIndex = 7;
+            this.lblPlayer2Name.Text = game.Player2.Name;
             // 
             // PlayForm
             // 
-            this.ClientSize = new System.Drawing.Size(776, 276);
-            this.Controls.Add(this.NamePlayer2);
-            this.Controls.Add(this.NamePlayer1);
-            this.Controls.Add(this.lblOpponentCoins);
-            this.Controls.Add(this.lblPlayerCoins);
+            this.ClientSize = new System.Drawing.Size(900, 300);
+            this.Controls.Add(this.lblPlayer1Name);
+            this.Controls.Add(this.lblPlayer2Name);
+            this.Controls.Add(this.lblPlayer2Coins);
+            this.Controls.Add(this.lblPlayer1Coins);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnAttack);
-            this.Controls.Add(this.listBoxOpponentCards);
-            this.Controls.Add(this.listBoxMyCards);
+            this.Controls.Add(this.player2Cards);
+            this.Controls.Add(this.player1Cards);
+            Controls.Add(status);
             this.Name = "PlayForm";
             this.Text = "Игра";
-            this.Load += new System.EventHandler(this.PlayForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
-        private void InitializeGame()
-        {
-            // Загрузка состояния игры
-            allCards = new AllCards().Cards;
-            random = new Random();
-            LoadGameState();
-            UpdateGameUI();
-            isPlayer1Turn = new Random().Next(2) == 0; // Случайный выбор, кто начинает
-        }
-
-        private void UpdateGameUI()
+        private void UpdateGameUI(Game game)
         {
             // Обновление интерфейса
-            listBoxMyCards.DataSource = null;
-            listBoxMyCards.DataSource = game.Player1.Deck.Cards.Where(c => c is Mob).ToList(); // Только мобы
-            listBoxOpponentCards.DataSource = null;
-            listBoxOpponentCards.DataSource = game.Player2.Deck.Cards.Where(c => c is Mob).ToList(); // Только мобы
-            lblPlayerCoins.Text = $"Coins: {game.Player1.Coins}";
-            lblOpponentCoins.Text = $"Coins: {game.Player2.Coins}";
+            player1Cards.DataSource = null;
+            player1Cards.DataSource = game.Player1.Deck.Cards;
+            player2Cards.DataSource = null;
+            player2Cards.DataSource = game.Player2.Deck.Cards;
+            lblPlayer1Coins.Text = $"Coins: {game.Player1.Coins}";
+            lblPlayer2Coins.Text = $"Coins: {game.Player2.Coins}";
+            if (game.Player1.IsPlayerTurn)
+            {
+                status.Text = $"Ход игрока {game.Player1.Name}";
+            }
+            else
+            {
+                status.Text = $"Ход игрока {game.Player2.Name}";
+            }
         }
 
-        private void btnAttack_Click(object sender, EventArgs e)
+        private void btnAttack_Click(Game game)
         {
-            if (isPlayer1Turn)
+            if (game.Player1.IsPlayerTurn)
             {
-                game.CurrentStatus = new PlayerAction();
-                // Игрок 1 атакует
-                if (listBoxMyCards.SelectedItem != null)
+                if (player1Cards.SelectedItem != null && player2Cards.SelectedItem != null)
                 {
-                    var selectedMyCard = (Mob)listBoxMyCards.SelectedItem;
-                    var selectedOpponentCard = (Mob)listBoxOpponentCards.SelectedItem;
-                    game.PerformAction(selectedMyCard, selectedOpponentCard);
-                    UpdateGameUI();
+                    var selectedCard1 = (Card)player1Cards.SelectedItem;
+                    var selectedCard2 = player2Cards.SelectedItem;
+                    if (selectedCard2 is Mob card2Mob)
+                    {
+                        try
+                        {
+                            if (!game.Player1.Action(selectedCard1, card2Mob))
+                            {
+                                game.Player2.Deck.Cards.Remove(selectedCard2 as Card);
+                            }
+                            SwitchTurn(game);
+                            game.Player2.addCoinsPerRound(3);
+                            UpdateGameUI(game);
+                        }
+                        catch
+                        {
+                            MessageBox.Show(this, "Недостаточно монет для атаки", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(this, "Можно атаковать только мобов", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             else
             {
-                game.CurrentStatus = new WaitingForOpponentAction();
-                // Игрок 2 атакует (бот)
-                if (listBoxOpponentCards.Items.Count > 0)
+                var selectedCard1 = (Card)player2Cards.SelectedItem;
+                var selectedCard2 = player1Cards.SelectedItem;
+                if (selectedCard2 is Mob card2Mob)
                 {
-                    var index = random.Next(listBoxMyCards.Items.Count);
-                    var card = (Card)listBoxOpponentCards.Items[index];
-                    game.PerformAction(card, listBoxMyCards.Items[index] as Mob);
-                    UpdateGameUI();
+                    try
+                    {
+                        if (!game.Player2.Action(selectedCard1, card2Mob))
+                        {
+                            game.Player1.Deck.Cards.Remove(selectedCard2 as Card);
+                        }
+                        SwitchTurn(game);
+                        game.Player1.addCoinsPerRound(3);
+                        UpdateGameUI(game);
+                    }
+                    catch
+                    {
+                        MessageBox.Show(this, "Недостаточно монет для атаки", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(this, "Можно атаковать только мобов", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
-            isPlayer1Turn = !isPlayer1Turn;
+            
         }
 
-        private void Attack(Mob myCard, Mob opponentCard)
+        private void SwitchTurn(Game game)
         {
-            // Использование метода атаки из класса Card
-            myCard.Action(opponentCard);
-            if (opponentCard.Hp <= 0)
-            {
-                game.Player2.Deck.Cards.Remove(opponentCard);
-            }
+            game.SwitchTurn();
         }
 
-        private void SwitchTurn()
+        private void btnExit_Click(Game game)
         {
-            isPlayer1Turn = !isPlayer1Turn;
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            //SaveGameState();
-            this.Close();
-        }
-
-        private void LoadGameState()
-        {
-            // Загрузка состояния игры из файла
-            if (File.Exists("gameState.json") && false)
-            {
-                var json = File.ReadAllText("gameState.json");
-                game = JsonConvert.DeserializeObject<Game>(json);
-            }
-            else
-            {
-                // Инициализация новых игроков и колод
-                Deck deck1 = GenerateRandomDeck();
-                Deck deck2 = GenerateRandomDeck();
-                Settings stg = new Settings();
-                game = new Game(new Player(deck1), new Player(deck2), stg);
-            }
-        }
-
-        *//*private void SaveGameState()
-        {
-            // Сохранение состояния игры в файл
-            var json = JsonConvert.SerializeObject(game);
-            File.WriteAllText("gameState.json", json);
-        }*//*
-
-        private Deck GenerateRandomDeck()
-        {
-            // Генерация случайной колоды из списка всех карт
-            var deck = new Deck();
-            var random = new Random();
-            for (int i = 0; i < 10; i++) // Пример: добавляем 10 случайных карт
-            {
-                Card randomCard = allCards[random.Next(allCards.Count)]; // Случайная карта из списка
-                deck.Cards.Add(randomCard.Clone() as Card);
-            }
-            return deck;
-        }
-
-        private System.Windows.Forms.ListBox listBoxMyCards;
-        private System.Windows.Forms.ListBox listBoxOpponentCards;
-        private System.Windows.Forms.Button btnAttack;
-        private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Label lblPlayerCoins;
-        private System.Windows.Forms.Label lblOpponentCoins;
-
-        private void PlayForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            game.SaveGame();
+            Close();
         }
     }
 }
 
-*/

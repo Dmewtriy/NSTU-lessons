@@ -14,7 +14,7 @@ namespace lab3
             var cards = new List<Card>();
             string jsonData;
             Card card;
-            var options = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.All };
+            var options = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.All , Formatting = Formatting.Indented };
             foreach (string cardFile in cardFiles)
             {
                 jsonData = File.ReadAllText(cardFile);
@@ -29,7 +29,7 @@ namespace lab3
         {
             string fileName = $"{entity.Name}.json";
             string filePath = path + "\\" + fileName;
-            var options = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.All };
+            var options = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.All , Formatting = Formatting.Indented };
             string json = JsonConvert.SerializeObject(entity, options);
             File.WriteAllText(filePath, json);
         }

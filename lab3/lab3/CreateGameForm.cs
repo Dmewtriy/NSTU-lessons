@@ -131,7 +131,6 @@ namespace lab3
             Name = "MainForm";
             Text = "Главное меню";
             ResumeLayout(false);
-            FormClosed += (sender, e) => SaveGame(game);
         }
 
         private void btnAddCardPlayer1_Click(Game game)
@@ -157,7 +156,7 @@ namespace lab3
             }
             catch (Exception ex)
             {
-                MessageBox.Show(this, ex.Message);
+                MessageBox.Show(this, ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -175,7 +174,7 @@ namespace lab3
             UpdateCardLists(game);
         }
 
-        private Game SaveGame(Game game)
+        private void SaveGame(Game game)
         {
             try
             {
@@ -183,7 +182,7 @@ namespace lab3
             }
             catch(Exception ex)
             {
-                MessageBox.Show(this, ex.Message);
+                MessageBox.Show(this, ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 game.Player1.Name = "Player 1";
             }
             try
@@ -192,13 +191,22 @@ namespace lab3
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(this, ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 game.Player2.Name = "Player 2";
             }
             game.Player1.Coins = 12;
             game.Player2.Coins = 12;
-            game.SaveGame();
-            return game;
+            if (game.Player1.Deck.Cards.Count != Deck.MaxDeckSize || game.Player2.Deck.Cards.Count != Deck.MaxDeckSize)
+            {
+                MessageBox.Show(this, "Колода собрана не полностью. Нельзя сохранить", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                game.SaveGame();
+                Hide();
+                PlayForm playForm = new PlayForm(game);
+                playForm.Show();
+            }
         }
 
         private void UpdateCardLists(Game game)
@@ -208,7 +216,7 @@ namespace lab3
             player2Cards.DataSource = null;
             player2Cards.DataSource = game.Player2.Deck.Cards;
             allCards.DataSource = null;
-            allCards.DataSource = game.allCards.Cards;
+            allCards.DataSource = Game.allCards.Cards;
         }
     }
 }
