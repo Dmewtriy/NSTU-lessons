@@ -12,6 +12,7 @@ namespace lab3
 {
     public partial class CreateGameForm : Form
     {
+        private Game game;
         private Label lblPlayer1Name;
         private TextBox txtPlayer1Name;
         private Label lblPlayer2Name;
@@ -27,8 +28,11 @@ namespace lab3
         private Button btnRemoveCardPlayer2;
 
         private Button save;
-        public CreateGameForm(Game game)
+        public CreateGameForm()
         {
+            Deck deck1 = new Deck();
+            Deck deck2 = new Deck();
+            game = new Game(new Player() { Deck = deck1}, new Player() { Deck = deck2 });
             InitializeComponent(game);
             UpdateCardLists(game);
         }
