@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="AllCards.cs" />
     <Compile Include="Archer.cs" />
+    <Compile Include="Bot.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="CardPersistence.cs" />
     <Compile Include="Deck.cs" />
@@ -127,6 +128,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PlayForm.resx">
       <DependentUpon>PlayForm.cs</DependentUpon>
     </EmbeddedResource>
