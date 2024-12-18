@@ -23,6 +23,7 @@ namespace lab3
         private Button btnExit;
         private Label lblPlayer1Coins;
         private Label lblPlayer2Coins;
+        private Button btnExistToMenu;
 
         public PlayForm(Game game)
         {
@@ -223,7 +224,9 @@ namespace lab3
         private void btnExit_Click(Game game)
         {
             game.SaveGame();
-            Close();
+            Hide();
+            MainForm main = new MainForm();
+            main.Show();
         }
     }
 }
