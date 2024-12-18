@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -17,7 +18,6 @@ namespace lab3
             foreach (string cardFile in cardFiles)
             {
                 jsonData = File.ReadAllText(cardFile);
-
                 card = JsonConvert.DeserializeObject<Card>(jsonData, options);
 
                 cards.Add(card);

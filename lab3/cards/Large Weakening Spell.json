@@ -1,1 +1,1 @@
-{"$type":"lab3.LowAttackSpell, lab3","TimeEffect":0,"Price":3,"Effect":3,"Name":"Large Weakening Spell","Description":"Большое заклинание, серьезно ослабляющее врага."}
+{"$type":"lab3.LowAttackSpell, lab3","TimeEffect":1,"Price":3,"Effect":3,"Name":"Large Weakening Spell","Description":"Большое заклинание, серьезно ослабляющее врага."}
