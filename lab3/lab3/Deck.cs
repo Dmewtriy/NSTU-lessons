@@ -8,16 +8,7 @@ namespace lab3
         private List<Card> cards;
         public List<Card> Cards => cards;
 
-        private int maxDeckSize;
-        public int MaxDeckSize
-        {
-            get { return maxDeckSize; }
-            set 
-            {
-                if (value <= 0) throw new ArgumentOutOfRangeException("Максимальное количество карт в колоде должно быть положительным");
-                maxDeckSize = value;
-            }
-        }
+        private int maxDeckSize = 8;
 
         public Deck()
         {
@@ -32,7 +23,7 @@ namespace lab3
             if (cards.Contains(card))
                 throw new ArgumentException($"Карта {card.Name} уже в колоде. Выберите другую карту.");
 
-            if (cards.Count >= MaxDeckSize)
+            if (cards.Count >= maxDeckSize)
                 throw new ArgumentException("Колода уже полная");
 
             cards.Add(card);
@@ -64,9 +55,7 @@ namespace lab3
 
                 if (j != i)
                 {
-                    Card temp = cards[i];
-                    cards[i] = cards[j];
-                    cards[j] = temp;
+                    (cards[j], cards[i]) = (cards[i], cards[j]);
                 }
             }
         }
