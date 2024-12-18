@@ -79,7 +79,7 @@ namespace lab3
             this.btnAddCardPlayer1.Name = "btnAddCardPlayer1";
             this.btnAddCardPlayer1.Size = new System.Drawing.Size(50, 50);
             this.btnAddCardPlayer1.TabIndex = 2;
-            this.btnAddCardPlayer1.Text = "+pl1";
+            this.btnAddCardPlayer1.Text = "Add";
             this.btnAddCardPlayer1.UseVisualStyleBackColor = true;
             this.btnAddCardPlayer1.Click += (sender, e) => btnAddCardPlayer1_Click(game);
             // 
@@ -87,9 +87,9 @@ namespace lab3
             // 
             this.btnRemoveCardPlayer1.Location = new System.Drawing.Point(82, 180);
             this.btnRemoveCardPlayer1.Name = "btnRemoveCardPlayer1";
-            this.btnRemoveCardPlayer1.Size = new System.Drawing.Size(50, 50);
+            this.btnRemoveCardPlayer1.Size = new System.Drawing.Size(55, 50);
             this.btnRemoveCardPlayer1.TabIndex = 3;
-            this.btnRemoveCardPlayer1.Text = "-pl1";
+            this.btnRemoveCardPlayer1.Text = "Remove";
             this.btnRemoveCardPlayer1.UseVisualStyleBackColor = true;
             this.btnRemoveCardPlayer1.Click += (sender, e) => btnRemoveCardPlayer1_Click(game);
             // 
@@ -99,7 +99,7 @@ namespace lab3
             this.btnAddCardPlayer2.Name = "btnAddCardPlayer2";
             this.btnAddCardPlayer2.Size = new System.Drawing.Size(50, 50);
             this.btnAddCardPlayer2.TabIndex = 2;
-            this.btnAddCardPlayer2.Text = "+pl2";
+            this.btnAddCardPlayer2.Text = "Add";
             this.btnAddCardPlayer2.UseVisualStyleBackColor = true;
             this.btnAddCardPlayer2.Click += (sender, e) => btnAddCardPlayer2_Click(game);
             // 
@@ -107,9 +107,9 @@ namespace lab3
             // 
             this.btnRemoveCardPlayer2.Location = new System.Drawing.Point(480, 180);
             this.btnRemoveCardPlayer2.Name = "btnRemoveCardPlayer2";
-            this.btnRemoveCardPlayer2.Size = new System.Drawing.Size(50, 50);
+            this.btnRemoveCardPlayer2.Size = new System.Drawing.Size(55, 50);
             this.btnRemoveCardPlayer2.TabIndex = 3;
-            this.btnRemoveCardPlayer2.Text = "-pl2";
+            this.btnRemoveCardPlayer2.Text = "Remove";
             this.btnRemoveCardPlayer2.UseVisualStyleBackColor = true;
             this.btnRemoveCardPlayer2.Click += (sender, e) => btnRemoveCardPlayer2_Click(game);
 
@@ -128,8 +128,8 @@ namespace lab3
             Controls.Add(btnAddCardPlayer2);
             Controls.Add(btnRemoveCardPlayer2);
             Controls.Add(save);
-            Name = "MainForm";
-            Text = "Главное меню";
+            Name = "CreateGameForm";
+            Text = "Создание новой игры";
             ResumeLayout(false);
         }
 
