@@ -12,7 +12,7 @@ namespace lab3
             Game game = new Game(new Player(), new Player()).LoadGame("2024-12-18_22-57-49");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CreateGameForm(game));
+            Application.Run(new MainForm());
 
         }
     }

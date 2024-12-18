@@ -55,7 +55,8 @@ namespace lab3
 
         private void btnNewGame_Click(object sender, EventArgs e)
         {
-            CreateGameForm newGameForm = new CreateGameForm();
+            Game game = new Game(new Player(), new Player());
+            CreateGameForm newGameForm = new CreateGameForm(game);
             newGameForm.Show();
             Hide(); // Скрыть MainForm
         }
