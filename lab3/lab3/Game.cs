@@ -54,7 +54,7 @@ namespace lab3
             File.WriteAllText(filePath, json);
         }
 
-        public Game LoadGame(string saveName) 
+        public static Game LoadGame(string saveName) 
         {
             string[] saves = Directory.GetFiles("..\\..\\..\\gameSave");
             string save = saves[Array.IndexOf(saves, "..\\..\\..\\gameSave\\" + saveName + ".json")];
@@ -63,6 +63,16 @@ namespace lab3
             jsonData = File.ReadAllText(save);
             Game game = JsonConvert.DeserializeObject<Game>(jsonData, options);
             return game;
+        }
+
+        public static string[] GetSaves()
+        {
+            string[] saves = Directory.GetFiles("..\\..\\..\\gameSave");
+            for(int i = 0; i < saves.Length; i++)
+            {
+                saves[i] = Path.GetFileNameWithoutExtension(saves[i]);
+            }
+            return saves;
         }
     }
 }
