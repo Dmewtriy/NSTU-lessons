@@ -2,7 +2,7 @@
 
 namespace lab3
 {
-    internal abstract class Card : ICloneable
+    public abstract class Card : ICloneable
     {
         protected int price;
         public int Price

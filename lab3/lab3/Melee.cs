@@ -1,6 +1,6 @@
 ﻿namespace lab3
 {
-    internal class Melee : Mob, Interfaces.IGetDamage
+    public class Melee : Mob, Interfaces.IGetDamage
     {
         public override void Action(Mob enemy)
         {

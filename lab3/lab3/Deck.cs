@@ -8,7 +8,7 @@ namespace lab3
         private List<Card> cards;
         public List<Card> Cards => cards;
 
-        private int maxDeckSize = 8;
+        public static int MaxDeckSize { get; } = 8;
 
         public Deck()
         {
@@ -23,7 +23,7 @@ namespace lab3
             if (cards.Contains(card))
                 throw new ArgumentException($"Карта {card.Name} уже в колоде. Выберите другую карту.");
 
-            if (cards.Count >= maxDeckSize)
+            if (cards.Count >= MaxDeckSize)
                 throw new ArgumentException("Колода уже полная");
 
             cards.Add(card);

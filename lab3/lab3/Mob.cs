@@ -2,7 +2,7 @@
 
 namespace lab3
 {
-    internal abstract class Mob : Card, Interfaces.IGetDamage
+    public abstract class Mob : Card, Interfaces.IGetDamage
     {
         private int hp;
         private int damage;

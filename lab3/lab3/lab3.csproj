@@ -82,6 +82,12 @@
     <Compile Include="Bot.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="CardPersistence.cs" />
+    <Compile Include="CreateGameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateGameForm.Designer.cs">
+      <DependentUpon>CreateGameForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Deck.cs" />
     <Compile Include="DeckForm.cs">
       <SubType>Form</SubType>
@@ -94,6 +100,12 @@
     <Compile Include="Game.cs" />
     <Compile Include="Interfaces\IGetDamage.cs" />
     <Compile Include="Interfaces\IPersistence.cs" />
+    <Compile Include="LoadGameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadGameForm.Designer.cs">
+      <DependentUpon>LoadGameForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LowAttackSpell.cs" />
     <Compile Include="HealthSpell.cs" />
     <Compile Include="Mage.cs" />

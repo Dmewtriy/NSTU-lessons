@@ -19,55 +19,55 @@ namespace lab3
 
         private void InitializeComponent()
         {
-            this.btnPlay = new System.Windows.Forms.Button();
-            this.btnEditDeck = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            btnNewGame = new Button();
+            btnLoadGame = new Button();
+            SuspendLayout();
             // 
-            // btnPlay
+            // btnNewGame
             // 
-            this.btnPlay.Location = new System.Drawing.Point(100, 50);
-            this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(200, 50);
-            this.btnPlay.TabIndex = 0;
-            this.btnPlay.Text = "Играть";
-            this.btnPlay.UseVisualStyleBackColor = true;
-            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
+            btnNewGame.Location = new System.Drawing.Point(100, 50);
+            btnNewGame.Name = "btnNewGame";
+            btnNewGame.Size = new System.Drawing.Size(200, 50);
+            btnNewGame.TabIndex = 0;
+            btnNewGame.Text = "Новая игра";
+            btnNewGame.UseVisualStyleBackColor = true;
+            btnNewGame.Click += new System.EventHandler(btnNewGame_Click);
             // 
-            // btnEditDeck
+            // btnLoadGame
             // 
-            this.btnEditDeck.Location = new System.Drawing.Point(100, 120);
-            this.btnEditDeck.Name = "btnEditDeck";
-            this.btnEditDeck.Size = new System.Drawing.Size(200, 50);
-            this.btnEditDeck.TabIndex = 1;
-            this.btnEditDeck.Text = "Изменить колоду";
-            this.btnEditDeck.UseVisualStyleBackColor = true;
-            this.btnEditDeck.Click += new System.EventHandler(this.btnEditDeck_Click);
+            btnLoadGame.Location = new System.Drawing.Point(100, 120);
+            btnLoadGame.Name = "btnLoadGame";
+            btnLoadGame.Size = new System.Drawing.Size(200, 50);
+            btnLoadGame.TabIndex = 1;
+            btnLoadGame.Text = "Загрузить игру";
+            btnLoadGame.UseVisualStyleBackColor = true;
+            btnLoadGame.Click += new System.EventHandler(btnLoadGame_Click);
             // 
             // MainForm
             // 
-            this.ClientSize = new System.Drawing.Size(400, 250);
-            this.Controls.Add(this.btnEditDeck);
-            this.Controls.Add(this.btnPlay);
-            this.Name = "MainForm";
-            this.Text = "Главное меню";
-            this.ResumeLayout(false);
+            ClientSize = new System.Drawing.Size(400, 250);
+            Controls.Add(btnLoadGame);
+            Controls.Add(btnNewGame);
+            Name = "MainForm";
+            Text = "Главное меню";
+            ResumeLayout(false);
         }
 
-        private void btnPlay_Click(object sender, EventArgs e)
+        private void btnNewGame_Click(object sender, EventArgs e)
         {
-            PlayForm playForm = new PlayForm();
-            playForm.Show();
-            this.Hide(); // Скрыть MainForm
+            CreateGameForm newGameForm = new CreateGameForm();
+            newGameForm.Show();
+            Hide(); // Скрыть MainForm
         }
 
-        private void btnEditDeck_Click(object sender, EventArgs e)
+        private void btnLoadGame_Click(object sender, EventArgs e)
         {
-            DeckForm deckForm = new DeckForm();
-            deckForm.Show();
-            this.Hide(); // Скрыть MainForm
+            LoadGameForm loadGame = new LoadGameForm();
+            loadGame.Show();
+            Hide(); // Скрыть MainForm
         }
 
-        private Button btnPlay;
-        private Button btnEditDeck;
+        private Button btnNewGame;
+        private Button btnLoadGame;
     }
 }

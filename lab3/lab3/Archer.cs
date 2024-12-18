@@ -1,6 +1,6 @@
 ﻿namespace lab3
 {
-    internal class Archer : Mob, Interfaces.IGetDamage
+    public class Archer : Mob, Interfaces.IGetDamage
     {
         public override void Action(Mob enemy)
         {

@@ -1,6 +1,6 @@
 ﻿namespace lab3
 {
-    internal class Mage : Mob, Interfaces.IGetDamage
+    public class Mage : Mob, Interfaces.IGetDamage
     {
         public override void Action(Mob enemy)
         {

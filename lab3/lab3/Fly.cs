@@ -1,6 +1,6 @@
 ﻿namespace lab3
 {
-    internal class Fly : Mob, Interfaces.IGetDamage
+    public class Fly : Mob, Interfaces.IGetDamage
     {
         public override void Action(Mob enemy)
         {

@@ -26,14 +26,14 @@ namespace lab3
 
         private void InitializeComponent()
         {
-            this.listBoxMyCards = new System.Windows.Forms.ListBox();
-            this.listBoxOpponentCards = new System.Windows.Forms.ListBox();
-            this.btnAttack = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.lblPlayerCoins = new System.Windows.Forms.Label();
-            this.lblOpponentCoins = new System.Windows.Forms.Label();
-            this.NamePlayer1 = new System.Windows.Forms.Label();
-            this.NamePlayer2 = new System.Windows.Forms.Label();
+            this.listBoxMyCards = new ListBox();
+            this.listBoxOpponentCards = new ListBox();
+            this.btnAttack = new Button();
+            this.btnExit = new Button();
+            this.lblPlayerCoins = new Label();
+            this.lblOpponentCoins = new Label();
+            this.NamePlayer1 = new Label();
+            this.NamePlayer2 = new Label();
             this.SuspendLayout();
             // 
             // listBoxMyCards

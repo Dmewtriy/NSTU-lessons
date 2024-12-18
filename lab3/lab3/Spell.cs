@@ -2,7 +2,7 @@
 
 namespace lab3
 {
-    internal abstract class Spell : Card
+    public abstract class Spell : Card
     {
         public new int Price
         {
