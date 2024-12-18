@@ -10,10 +10,7 @@ namespace lab3
     {
         private Deck botDeck;
 
-        public Bot(Deck deck):base(deck)
-        {
-            
-        }
+       
         public Deck BotDeck 
         {
             get 
@@ -32,7 +29,7 @@ namespace lab3
             var random = new Random();
             var allCards = new AllCards().Cards;
 
-            for (int i = 0; i < MaxNumCardOnTable; i++) // Пример: добавляем 10 случайных карт
+            for (int i = 0; i < MaxNumCardOnTable; i++) 
             {
                 Card randomCard = allCards[random.Next(allCards.Count)]; // Случайная карта из списка
                 deck.Cards.Add(randomCard.Clone() as Card);
@@ -40,11 +37,13 @@ namespace lab3
             BotDeck = deck;
         }
 
-        public void MakeMove(Game game, Player player) 
+        public void MakeMove(Deck playerDeck) 
         {
             Random random = new Random();
-            var index = random.Next(player.Deck.Cards.Count);
-            game.PerformAction(botDeck.Cards[index], player.Deck.Cards[index] as Mob);
+            var index = random.Next(playerDeck.Cards.Count);
+            if (botDeck.Cards[index])
+            Action(botDeck.Cards[index], playerDeck.Cards[index] as Mob);
         }
+
     }
 }

@@ -33,29 +33,31 @@ namespace lab3
             this.btnExit = new System.Windows.Forms.Button();
             this.lblPlayerCoins = new System.Windows.Forms.Label();
             this.lblOpponentCoins = new System.Windows.Forms.Label();
+            this.NamePlayer1 = new System.Windows.Forms.Label();
+            this.NamePlayer2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listBoxMyCards
             // 
             this.listBoxMyCards.FormattingEnabled = true;
-            this.listBoxMyCards.Location = new System.Drawing.Point(12, 12);
+            this.listBoxMyCards.Location = new System.Drawing.Point(12, 50);
             this.listBoxMyCards.Name = "listBoxMyCards";
-            this.listBoxMyCards.Size = new System.Drawing.Size(250, 200);
+            this.listBoxMyCards.Size = new System.Drawing.Size(194, 186);
             this.listBoxMyCards.TabIndex = 0;
             // 
             // listBoxOpponentCards
             // 
             this.listBoxOpponentCards.FormattingEnabled = true;
-            this.listBoxOpponentCards.Location = new System.Drawing.Point(280, 12);
+            this.listBoxOpponentCards.Location = new System.Drawing.Point(340, 50);
             this.listBoxOpponentCards.Name = "listBoxOpponentCards";
-            this.listBoxOpponentCards.Size = new System.Drawing.Size(250, 200);
+            this.listBoxOpponentCards.Size = new System.Drawing.Size(201, 186);
             this.listBoxOpponentCards.TabIndex = 1;
             // 
             // btnAttack
             // 
-            this.btnAttack.Location = new System.Drawing.Point(220, 80);
+            this.btnAttack.Location = new System.Drawing.Point(575, 220);
             this.btnAttack.Name = "btnAttack";
-            this.btnAttack.Size = new System.Drawing.Size(50, 50);
+            this.btnAttack.Size = new System.Drawing.Size(172, 50);
             this.btnAttack.TabIndex = 2;
             this.btnAttack.Text = "Атаковать";
             this.btnAttack.UseVisualStyleBackColor = true;
@@ -63,9 +65,9 @@ namespace lab3
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(12, 220);
+            this.btnExit.Location = new System.Drawing.Point(575, 12);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(250, 50);
+            this.btnExit.Size = new System.Drawing.Size(172, 51);
             this.btnExit.TabIndex = 3;
             this.btnExit.Text = "Выйти";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -74,24 +76,45 @@ namespace lab3
             // lblPlayerCoins
             // 
             this.lblPlayerCoins.AutoSize = true;
-            this.lblPlayerCoins.Location = new System.Drawing.Point(12, 280);
+            this.lblPlayerCoins.Location = new System.Drawing.Point(12, 31);
             this.lblPlayerCoins.Name = "lblPlayerCoins";
-            this.lblPlayerCoins.Size = new System.Drawing.Size(35, 13);
+            this.lblPlayerCoins.Size = new System.Drawing.Size(45, 13);
             this.lblPlayerCoins.TabIndex = 4;
             this.lblPlayerCoins.Text = "Coins: 0";
             // 
             // lblOpponentCoins
             // 
             this.lblOpponentCoins.AutoSize = true;
-            this.lblOpponentCoins.Location = new System.Drawing.Point(280, 280);
+            this.lblOpponentCoins.Location = new System.Drawing.Point(337, 31);
             this.lblOpponentCoins.Name = "lblOpponentCoins";
-            this.lblOpponentCoins.Size = new System.Drawing.Size(35, 13);
+            this.lblOpponentCoins.Size = new System.Drawing.Size(45, 13);
             this.lblOpponentCoins.TabIndex = 5;
             this.lblOpponentCoins.Text = "Coins: 0";
             // 
+            // NamePlayer1
+            // 
+            this.NamePlayer1.AutoSize = true;
+            this.NamePlayer1.Location = new System.Drawing.Point(12, 12);
+            this.NamePlayer1.Name = "NamePlayer1";
+            this.NamePlayer1.Size = new System.Drawing.Size(42, 13);
+            this.NamePlayer1.TabIndex = 6;
+            this.NamePlayer1.Text = "Player1";
+            this.NamePlayer1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // NamePlayer2
+            // 
+            this.NamePlayer2.AutoSize = true;
+            this.NamePlayer2.Location = new System.Drawing.Point(337, 11);
+            this.NamePlayer2.Name = "NamePlayer2";
+            this.NamePlayer2.Size = new System.Drawing.Size(42, 13);
+            this.NamePlayer2.TabIndex = 7;
+            this.NamePlayer2.Text = "Player2";
+            // 
             // PlayForm
             // 
-            this.ClientSize = new System.Drawing.Size(550, 320);
+            this.ClientSize = new System.Drawing.Size(776, 276);
+            this.Controls.Add(this.NamePlayer2);
+            this.Controls.Add(this.NamePlayer1);
             this.Controls.Add(this.lblOpponentCoins);
             this.Controls.Add(this.lblPlayerCoins);
             this.Controls.Add(this.btnExit);
@@ -100,8 +123,10 @@ namespace lab3
             this.Controls.Add(this.listBoxMyCards);
             this.Name = "PlayForm";
             this.Text = "Игра";
+            this.Load += new System.EventHandler(this.PlayForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private void InitializeGame()
@@ -220,6 +245,16 @@ namespace lab3
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label lblPlayerCoins;
         private System.Windows.Forms.Label lblOpponentCoins;
+
+        private void PlayForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
