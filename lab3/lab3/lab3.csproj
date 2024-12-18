@@ -79,7 +79,6 @@
   <ItemGroup>
     <Compile Include="AllCards.cs" />
     <Compile Include="Archer.cs" />
-    <Compile Include="Bot.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="CardPersistence.cs" />
     <Compile Include="Deck.cs" />
