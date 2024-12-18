@@ -23,7 +23,7 @@ namespace lab3
         private Button btnExit;
         private Label lblPlayer1Coins;
         private Label lblPlayer2Coins;
-        private Button btnExistToMenu;
+        private Button skipMove;
 
         public PlayForm(Game game)
         {
@@ -43,7 +43,8 @@ namespace lab3
             this.lblPlayer2Coins = new Label();
             this.lblPlayer1Name = new Label();
             this.lblPlayer2Name = new Label();
-            status = new TextBox() { ReadOnly = true, Location = new Point(380, 100), Size = new Size(121, 80)};
+            status = new TextBox() { ReadOnly = true, Location = new Point(380, 100), Size = new Size(121, 80) };
+            skipMove = new Button();
             this.SuspendLayout();
             // 
             // player1Cards
@@ -118,9 +119,19 @@ namespace lab3
             this.lblPlayer2Name.TabIndex = 7;
             this.lblPlayer2Name.Text = game.Player2.Name;
             // 
+            // skipMove
+            // 
+            this.skipMove.Location = new System.Drawing.Point(350, 280);
+            this.skipMove.Name = "skipMove";
+            this.skipMove.Size = new System.Drawing.Size(172, 50);
+            this.skipMove.TabIndex = 2;
+            this.skipMove.Text = "Пропустить ход";
+            this.skipMove.UseVisualStyleBackColor = true;
+            this.skipMove.Click += (sender, e) => skipMove_Click(game);
+            // 
             // PlayForm
             // 
-            this.ClientSize = new System.Drawing.Size(900, 300);
+            this.ClientSize = new System.Drawing.Size(900, 400);
             this.Controls.Add(this.lblPlayer1Name);
             this.Controls.Add(this.lblPlayer2Name);
             this.Controls.Add(this.lblPlayer2Coins);
@@ -129,6 +140,7 @@ namespace lab3
             this.Controls.Add(this.btnAttack);
             this.Controls.Add(this.player2Cards);
             this.Controls.Add(this.player1Cards);
+            this.Controls.Add(skipMove);
             Controls.Add(status);
             this.Name = "PlayForm";
             this.Text = "Игра";
@@ -175,6 +187,11 @@ namespace lab3
                             SwitchTurn(game);
                             game.Player2.addCoinsPerRound(3);
                             UpdateGameUI(game);
+                            if (game.gameIsEnd(game.Player2))
+                            {
+                                MessageBox.Show($"Победил игрок {game.Player1.Name}", "Победа", MessageBoxButtons.OK);
+                                Close();
+                            }
                         }
                         catch
                         {
@@ -202,6 +219,11 @@ namespace lab3
                         SwitchTurn(game);
                         game.Player1.addCoinsPerRound(3);
                         UpdateGameUI(game);
+                        if (game.gameIsEnd(game.Player1))
+                        {
+                            MessageBox.Show($"Победил игрок {game.Player2.Name}", "Победа", MessageBoxButtons.OK);
+                            Close();
+                        }
                     }
                     catch
                     {
@@ -213,7 +235,7 @@ namespace lab3
                     MessageBox.Show(this, "Можно атаковать только мобов", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            
+
         }
 
         private void SwitchTurn(Game game)
@@ -227,6 +249,21 @@ namespace lab3
             Hide();
             MainForm main = new MainForm();
             main.Show();
+        }
+
+        private void skipMove_Click(Game game)
+        {
+            if (game.Player1.IsPlayerTurn)
+            {
+                SwitchTurn(game);
+                game.Player2.addCoinsPerRound(3);
+            }
+            else
+            {
+                SwitchTurn(game);
+                game.Player1.addCoinsPerRound(3);
+            }
+            UpdateGameUI(game);
         }
     }
 }

@@ -1,0 +1,159 @@
+{
+  "$type": "lab3.Game, lab3",
+  "Player1": {
+    "$type": "lab3.Player, lab3",
+    "IsPlayerTurn": false,
+    "Name": "Player 1",
+    "Coins": 12,
+    "Deck": {
+      "$type": "lab3.Deck, lab3",
+      "Cards": {
+        "$type": "System.Collections.Generic.List`1[[lab3.Card, lab3]], mscorlib",
+        "$values": [
+          {
+            "$type": "lab3.Mage, lab3",
+            "Hp": 4,
+            "Damage": 7,
+            "Price": 5,
+            "Name": "Arcane Mage",
+            "Description": "Маг тайной магии с огромным уроном, но низким здоровьем."
+          },
+          {
+            "$type": "lab3.Melee, lab3",
+            "Hp": 5,
+            "Damage": 6,
+            "Price": 3,
+            "Name": "Battle Axe Warrior",
+            "Description": "Воин с боевым топором, наносящий сильные удары."
+          },
+          {
+            "$type": "lab3.Tank, lab3",
+            "Hp": 7,
+            "Damage": 7,
+            "Price": 7,
+            "Name": "Battle Tank",
+            "Description": "Сбалансированный танк с высоким уроном и прочностью."
+          },
+          {
+            "$type": "lab3.Melee, lab3",
+            "Hp": 8,
+            "Damage": 3,
+            "Price": 6,
+            "Name": "Crimson Gladiator",
+            "Description": "Кровавый гладиатор с высокими показателями здоровья."
+          },
+          {
+            "$type": "lab3.Mage, lab3",
+            "Hp": 7,
+            "Damage": 3,
+            "Price": 7,
+            "Name": "Elemental Mage",
+            "Description": "Маг-элементалист, управляющий силами природы."
+          },
+          {
+            "$type": "lab3.Archer, lab3",
+            "Hp": 7,
+            "Damage": 3,
+            "Price": 2,
+            "Name": "Elite Archer",
+            "Description": "Элитный лучник с высоким здоровьем, но невысоким уроном."
+          },
+          {
+            "$type": "lab3.Mage, lab3",
+            "Hp": 5,
+            "Damage": 6,
+            "Price": 3,
+            "Name": "Fire Mage",
+            "Description": "Маг огня, разрушающий врагов пламенными заклинаниями."
+          },
+          {
+            "$type": "lab3.Fly, lab3",
+            "Hp": 6,
+            "Damage": 2,
+            "Price": 4,
+            "Name": "Flying Hunter",
+            "Description": "Летающий охотник, обладающий высокой выживаемостью."
+          }
+        ]
+      }
+    }
+  },
+  "Player2": {
+    "$type": "lab3.Player, lab3",
+    "IsPlayerTurn": true,
+    "Name": "Player 2",
+    "Coins": 12,
+    "Deck": {
+      "$type": "lab3.Deck, lab3",
+      "Cards": {
+        "$type": "System.Collections.Generic.List`1[[lab3.Card, lab3]], mscorlib",
+        "$values": [
+          {
+            "$type": "lab3.Mage, lab3",
+            "Hp": 4,
+            "Damage": 7,
+            "Price": 5,
+            "Name": "Arcane Mage",
+            "Description": "Маг тайной магии с огромным уроном, но низким здоровьем."
+          },
+          {
+            "$type": "lab3.Melee, lab3",
+            "Hp": 5,
+            "Damage": 6,
+            "Price": 3,
+            "Name": "Battle Axe Warrior",
+            "Description": "Воин с боевым топором, наносящий сильные удары."
+          },
+          {
+            "$type": "lab3.Tank, lab3",
+            "Hp": 7,
+            "Damage": 7,
+            "Price": 7,
+            "Name": "Battle Tank",
+            "Description": "Сбалансированный танк с высоким уроном и прочностью."
+          },
+          {
+            "$type": "lab3.Melee, lab3",
+            "Hp": 8,
+            "Damage": 3,
+            "Price": 6,
+            "Name": "Crimson Gladiator",
+            "Description": "Кровавый гладиатор с высокими показателями здоровья."
+          },
+          {
+            "$type": "lab3.Mage, lab3",
+            "Hp": 7,
+            "Damage": 3,
+            "Price": 7,
+            "Name": "Elemental Mage",
+            "Description": "Маг-элементалист, управляющий силами природы."
+          },
+          {
+            "$type": "lab3.Archer, lab3",
+            "Hp": 7,
+            "Damage": 3,
+            "Price": 2,
+            "Name": "Elite Archer",
+            "Description": "Элитный лучник с высоким здоровьем, но невысоким уроном."
+          },
+          {
+            "$type": "lab3.Mage, lab3",
+            "Hp": 5,
+            "Damage": 6,
+            "Price": 3,
+            "Name": "Fire Mage",
+            "Description": "Маг огня, разрушающий врагов пламенными заклинаниями."
+          },
+          {
+            "$type": "lab3.Fly, lab3",
+            "Hp": 6,
+            "Damage": 2,
+            "Price": 4,
+            "Name": "Flying Hunter",
+            "Description": "Летающий охотник, обладающий высокой выживаемостью."
+          }
+        ]
+      }
+    }
+  }
+}

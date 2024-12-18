@@ -74,5 +74,18 @@ namespace lab3
             }
             return saves;
         }
+
+        public bool gameIsEnd(Player player)
+        {
+            foreach(Card card in player.Deck.Cards)
+            {
+                if (card is Mob)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }

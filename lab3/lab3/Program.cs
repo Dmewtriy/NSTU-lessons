@@ -11,7 +11,7 @@ namespace lab3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoadGameForm());
+            Application.Run(new MainForm());
 
         }
     }
