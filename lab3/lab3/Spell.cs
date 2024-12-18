@@ -10,7 +10,7 @@ namespace lab3
             set
             {
                 if (value > 0 && value <= 4) price = value;
-                else throw new ArgumentOutOfRangeException("Неверное значение стоимости карты: принимает значения от 1 до 4 (включительно)");
+                else throw new ArgumentOutOfRangeException("Неверное значение стоимости карты");
             }
         }
 
@@ -24,7 +24,7 @@ namespace lab3
                 {
                     effect = value;
                 }
-                else throw new ArgumentOutOfRangeException("Неверное значение величины эффекта: принимает целые значения от 1 до 3 (включительно)");
+                else throw new ArgumentOutOfRangeException("Неверное значение величины эффекта");
             }
         }
 

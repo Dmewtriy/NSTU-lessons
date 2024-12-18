@@ -3,7 +3,7 @@
 namespace lab3
 {
     // улучшение атаки союзных карт
-    internal class UpgradeAttackSpell : Spell
+    public class UpgradeAttackSpell : Spell
     {
         public override void Action(Mob teammate)
         {
