@@ -1,6 +1,6 @@
 ﻿namespace lab3.Interfaces
 {
-    internal interface IGetDamage
+    public interface IGetDamage
     {
         void GetDamage(Archer archer);
         void GetDamage(Fly fly);

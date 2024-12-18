@@ -49,8 +49,16 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="ArcherTests.cs" />
+    <Compile Include="CardTests.cs" />
+    <Compile Include="FlyTests.cs" />
+    <Compile Include="HealthSpellTests.cs" />
+    <Compile Include="MageTests.cs" />
+    <Compile Include="MeleeTests.cs" />
+    <Compile Include="MobTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpellTests.cs" />
+    <Compile Include="TankTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
