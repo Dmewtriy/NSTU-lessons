@@ -9,7 +9,13 @@ namespace lab3
         private Deck deck;
         private int coins;
         private int maxCoins = 12; // Максимальное число монет для ходов
+        private bool isPlayerTurn;
 
+        public bool IsPlayerTurn
+        {
+            get { return isPlayerTurn; }
+            set { isPlayerTurn = value; }
+        }
         public string Name 
         {  
             get

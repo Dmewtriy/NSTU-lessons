@@ -15,7 +15,6 @@ namespace lab3
     public partial class PlayForm : Form
     {
         private Game game;
-        private bool isPlayer1Turn;
         private List<Card> allCards; // Список всех доступных карт
         private Random random;
 
