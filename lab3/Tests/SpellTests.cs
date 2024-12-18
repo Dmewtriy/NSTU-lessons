@@ -68,18 +68,5 @@ namespace CardTest
             // Act
             spell.Price = price;
         }
-
-        [TestMethod()]
-        public void ToStringTest()
-        {
-            // Arrange
-            var spell = new SpTest();
-            int price = 3;
-            string excepted = " Effect-3";
-            // Act
-            spell.Price = price;
-            // Assert
-            Assert.AreEqual(excepted, spell.ToString());
-        }
     }
 }

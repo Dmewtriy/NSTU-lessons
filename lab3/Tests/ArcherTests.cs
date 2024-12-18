@@ -12,70 +12,70 @@ namespace MobTest
     public class ArcherTests
     {
         [TestMethod]
-        public void Test_Archer_GetDamage_FromAnotherArcher()
+        public void Test_Archer_Action_InteractionWithArcher()
         {
             // Arrange
-            var archer = new Archer { Hp = 10, Damage = 3 };
-            var enemyArcher = new Archer { Hp = 10, Damage = 2 };
+            var archer1 = new Archer { Hp = 10, Damage = 3 };
+            var archer2 = new Archer { Hp = 10, Damage = 2 };
 
             // Act
-            archer.GetDamage(enemyArcher);
+            archer2.Action(archer1);
 
             // Assert
-            Assert.AreEqual(8, archer.Hp); // У Archer должно остаться 8 HP
+            Assert.AreEqual(8, archer1.Hp); // У Archer должно остаться 8 HP
         }
 
         [TestMethod]
-        public void Test_Archer_GetDamage_FromFly()
+        public void Test_Archer_Action_InteractionWithFly()
         {
             // Arrange
             var archer = new Archer { Hp = 10, Damage = 3 };
             var fly = new Fly { Hp = 5, Damage = 1 };
 
             // Act
-            archer.GetDamage(fly);
+            fly.Action(archer);
 
             // Assert
             Assert.AreEqual(9, archer.Hp); // Archer теряет 1 HP
         }
 
         [TestMethod]
-        public void Test_Archer_GetDamage_FromMage()
+        public void Test_Archer_Action_InteractionWithMage()
         {
             // Arrange
             var archer = new Archer { Hp = 10, Damage = 3 };
             var mage = new Mage { Hp = 6, Damage = 4 };
 
             // Act
-            archer.GetDamage(mage);
+            mage.Action(archer);
 
             // Assert
             Assert.AreEqual(6, archer.Hp); // Archer теряет 4 HP
         }
 
         [TestMethod]
-        public void Test_Archer_GetDamage_FromMelee()
+        public void Test_Archer_Action_InteractionWithMelee()
         {
             // Arrange
             var archer = new Archer { Hp = 10, Damage = 3 };
             var melee = new Melee { Hp = 8, Damage = 3 };
 
             // Act
-            archer.GetDamage(melee);
+            melee.Action(archer);
 
             // Assert
             Assert.AreEqual(5, archer.Hp); // Archer теряет (3 + 2) HP
         }
 
         [TestMethod]
-        public void Test_Archer_GetDamage_FromTank()
+        public void Test_Archer_Action_InteractionWithTank()
         {
             // Arrange
             var archer = new Archer { Hp = 10, Damage = 3 };
-            var tank = new Tank { Hp = 12, Damage = 4 };
+            var tank = new Tank { Hp = 8, Damage = 4 };
 
             // Act
-            archer.GetDamage(tank);
+            tank.Action(archer);
 
             // Assert
             Assert.AreEqual(6, archer.Hp); // Archer теряет 4 HP

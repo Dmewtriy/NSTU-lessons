@@ -52,7 +52,8 @@
     <Compile Include="ArcherTests.cs" />
     <Compile Include="CardTests.cs" />
     <Compile Include="FlyTests.cs" />
-    <Compile Include="HealthSpellTests.cs" />
+    <Compile Include="PlayerTests.cs" />
+    <Compile Include="SpellLevel2Tests.cs" />
     <Compile Include="MageTests.cs" />
     <Compile Include="MeleeTests.cs" />
     <Compile Include="MobTests.cs" />

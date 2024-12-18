@@ -13,7 +13,7 @@ namespace lab3
             }
             else 
             { 
-                enemy.Damage = 0;
+                enemy.Damage = 1;
             }
         }
     }

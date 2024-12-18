@@ -19,10 +19,10 @@ namespace MobTest
             var archer = new Archer { Hp = 8, Damage = 4 };
 
             // Act
-            fly.Action(archer);
+            archer.Action(fly);
 
             // Assert
-            Assert.AreEqual(5, archer.Hp); // У Archer должно остаться 5 HP после атаки Fly
+            Assert.AreEqual(6, fly.Hp); // У Archer должно остаться 5 HP после атаки Fly
         }
 
         [TestMethod]
@@ -33,10 +33,10 @@ namespace MobTest
             var fly2 = new Fly { Hp = 6, Damage = 1 };
 
             // Act
-            fly1.Action(fly2);
+            fly2.Action(fly1);
 
             // Assert
-            Assert.AreEqual(4, fly2.Hp); // У второго Fly должно остаться 4 HP после атаки первого
+            Assert.AreEqual(9, fly1.Hp); // У второго Fly должно остаться 4 HP после атаки первого
         }
 
         [TestMethod]
@@ -47,10 +47,10 @@ namespace MobTest
             var mage = new Mage { Hp = 8, Damage = 5 };
 
             // Act
-            fly.Action(mage);
+            mage.Action(fly);
 
             // Assert
-            Assert.AreEqual(6, mage.Hp); // У Mage должно остаться 6 HP после атаки Fly
+            Assert.AreEqual(5, fly.Hp); // У Mage должно остаться 6 HP после атаки Fly
         }
 
         [TestMethod]
@@ -58,13 +58,13 @@ namespace MobTest
         {
             // Arrange
             var fly = new Fly { Hp = 10, Damage = 2 };
-            var melee = new Melee { Hp = 10, Damage = 3 };
+            var melee = new Melee { Hp = 5, Damage = 3 };
 
             // Act
-            fly.Action(melee);
+            melee.Action(fly);
 
             // Assert
-            Assert.AreEqual(10, melee.Hp); // У Melee HP не должно измениться, так как Fly не наносит урон Melee
+            Assert.AreEqual(10, fly.Hp); 
         }
 
         [TestMethod]
@@ -72,13 +72,13 @@ namespace MobTest
         {
             // Arrange
             var fly = new Fly { Hp = 10, Damage = 2 };
-            var tank = new Tank { Hp = 12, Damage = 4 };
+            var tank = new Tank { Hp = 5, Damage = 4 };
 
             // Act
-            fly.Action(tank);
+            tank.Action(fly);
 
             // Assert
-            Assert.AreEqual(12, tank.Hp); // У Tank HP не должно измениться, так как Fly не наносит урон Tank
+            Assert.AreEqual(10, fly.Hp); // У Tank HP не должно измениться, так как Fly не наносит урон Tank
         }
     }
 }
