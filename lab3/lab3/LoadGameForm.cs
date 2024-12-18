@@ -12,6 +12,8 @@ namespace lab3
 {
     public partial class LoadGameForm : Form
     {
+        private ListBox listOfSaves;
+        private Button btnSelect;
         public LoadGameForm()
         {
             InitializeComponent();

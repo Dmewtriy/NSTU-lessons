@@ -12,6 +12,7 @@ namespace lab3
 {
     public partial class CreateGameForm : Form
     {
+        private Game game;
         private Label lblPlayer1Name;
         private TextBox txtPlayer1Name;
         private Label lblPlayer2Name;
@@ -25,10 +26,15 @@ namespace lab3
         private Button btnAddCardPlayer2;
         private Button btnRemoveCardPlayer1;
         private Button btnRemoveCardPlayer2;
+        private Button btnExistToMenu;
+
 
         private Button save;
-        public CreateGameForm(Game game)
+        public CreateGameForm()
         {
+            Deck deck1 = new Deck();
+            Deck deck2 = new Deck();
+            game = new Game(new Player() { Deck = deck1}, new Player() { Deck = deck2 });
             InitializeComponent(game);
             UpdateCardLists(game);
         }
@@ -45,7 +51,8 @@ namespace lab3
             btnRemoveCardPlayer1 = new Button();
             btnAddCardPlayer2 = new Button();
             btnRemoveCardPlayer2 = new Button();
-            save = new Button() { Text = "Сохранить", Location = new Point(350, 450) };
+            save = new Button() { Text = "Сохранить", Location = new Point(350, 450), Size = new Size(100,50)};
+            btnExistToMenu = new Button() {Text = "Выйти", Location = new Point(700, 450), Size = new Size(100, 50)};
 
             SuspendLayout();
             //
@@ -113,6 +120,8 @@ namespace lab3
             this.btnRemoveCardPlayer2.UseVisualStyleBackColor = true;
             this.btnRemoveCardPlayer2.Click += (sender, e) => btnRemoveCardPlayer2_Click(game);
 
+
+            btnExistToMenu.Click += (sender, e) => btnExistToMenu_Click();
             save.Click += (sender, e) => SaveGame(game);
 
             ClientSize = new Size(800, 500);
@@ -127,6 +136,7 @@ namespace lab3
             Controls.Add(btnRemoveCardPlayer1);
             Controls.Add(btnAddCardPlayer2);
             Controls.Add(btnRemoveCardPlayer2);
+            Controls.Add(btnExistToMenu);
             Controls.Add(save);
             Name = "CreateGameForm";
             Text = "Создание новой игры";
@@ -172,6 +182,13 @@ namespace lab3
         {
             game.Player2.Deck.RemoveCard((Card)player2Cards.SelectedItem);
             UpdateCardLists(game);
+        }
+
+        private void btnExistToMenu_Click()
+        {
+            MainForm main = new MainForm();
+            main.Show();
+            Hide();
         }
 
         private void SaveGame(Game game)

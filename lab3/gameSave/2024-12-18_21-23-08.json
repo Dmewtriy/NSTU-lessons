@@ -1,0 +1,300 @@
+{
+  "$type": "lab3.Game, lab3",
+  "allCards": {
+    "$type": "lab3.AllCards, lab3",
+    "Cards": {
+      "$type": "System.Collections.Generic.List`1[[lab3.Card, lab3]], mscorlib",
+      "$values": [
+        {
+          "$type": "lab3.Mage, lab3",
+          "Hp": 4,
+          "Damage": 7,
+          "Price": 5,
+          "Name": "Arcane Mage",
+          "Description": "Маг тайной магии с огромным уроном, но низким здоровьем."
+        },
+        {
+          "$type": "lab3.Melee, lab3",
+          "Hp": 5,
+          "Damage": 6,
+          "Price": 3,
+          "Name": "Battle Axe Warrior",
+          "Description": "Воин с боевым топором, наносящий сильные удары."
+        },
+        {
+          "$type": "lab3.Tank, lab3",
+          "Hp": 7,
+          "Damage": 7,
+          "Price": 7,
+          "Name": "Battle Tank",
+          "Description": "Сбалансированный танк с высоким уроном и прочностью."
+        },
+        {
+          "$type": "lab3.Melee, lab3",
+          "Hp": 8,
+          "Damage": 3,
+          "Price": 6,
+          "Name": "Crimson Gladiator",
+          "Description": "Кровавый гладиатор с высокими показателями здоровья."
+        },
+        {
+          "$type": "lab3.Mage, lab3",
+          "Hp": 7,
+          "Damage": 3,
+          "Price": 7,
+          "Name": "Elemental Mage",
+          "Description": "Маг-элементалист, управляющий силами природы."
+        },
+        {
+          "$type": "lab3.Archer, lab3",
+          "Hp": 7,
+          "Damage": 3,
+          "Price": 2,
+          "Name": "Elite Archer",
+          "Description": "Элитный лучник с высоким здоровьем, но невысоким уроном."
+        },
+        {
+          "$type": "lab3.Mage, lab3",
+          "Hp": 5,
+          "Damage": 6,
+          "Price": 3,
+          "Name": "Fire Mage",
+          "Description": "Маг огня, разрушающий врагов пламенными заклинаниями."
+        },
+        {
+          "$type": "lab3.Fly, lab3",
+          "Hp": 6,
+          "Damage": 2,
+          "Price": 4,
+          "Name": "Flying Hunter",
+          "Description": "Летающий охотник, обладающий высокой выживаемостью."
+        },
+        {
+          "$type": "lab3.Tank, lab3",
+          "Hp": 10,
+          "Damage": 3,
+          "Price": 3,
+          "Name": "Fortress Tank",
+          "Description": "Медленный, но чрезвычайно выносливый защитник."
+        },
+        {
+          "$type": "lab3.Mage, lab3",
+          "Hp": 6,
+          "Damage": 5,
+          "Price": 4,
+          "Name": "Frost Mage",
+          "Description": "Маг льда, замораживающий врагов мощными заклинаниями."
+        },
+        {
+          "$type": "lab3.Tank, lab3",
+          "Hp": 8,
+          "Damage": 6,
+          "Price": 6,
+          "Name": "Heavy Armored Tank",
+          "Description": "Тяжелобронированный танк с разрушительным уроном."
+        },
+        {
+          "$type": "lab3.Tank, lab3",
+          "Hp": 10,
+          "Damage": 4,
+          "Price": 4,
+          "Name": "Ironclad Tank",
+          "Description": "Непробиваемый танк, способный выдерживать тяжелые удары."
+        },
+        {
+          "$type": "lab3.UpgradeAttackSpell, lab3",
+          "Price": 3,
+          "Effect": 3,
+          "Name": "Large Attack Boost",
+          "Description": "Сильное усиление атаки для союзника."
+        },
+        {
+          "$type": "lab3.HealthSpell, lab3",
+          "Price": 3,
+          "Effect": 3,
+          "Name": "Large Healing Potion",
+          "Description": "Большое зелье, значительно восстанавливающее здоровье союзнику."
+        },
+        {
+          "$type": "lab3.LowAttackSpell, lab3",
+          "Price": 3,
+          "Effect": 3,
+          "Name": "Large Weakening Spell",
+          "Description": "Большое заклинание, серьезно ослабляющее врага."
+        },
+        {
+          "$type": "lab3.Archer, lab3",
+          "Hp": 6,
+          "Damage": 4,
+          "Price": 3,
+          "Name": "Longbow Archer",
+          "Description": "Мастер дальнего боя, поражающий врагов с большого расстояния."
+        },
+        {
+          "$type": "lab3.Archer, lab3",
+          "Hp": 8,
+          "Damage": 2,
+          "Price": 6,
+          "Name": "Master Marksman",
+          "Description": "Мастер-стрелок с выдающимся здоровьем и низким уроном."
+        },
+        {
+          "$type": "lab3.UpgradeAttackSpell, lab3",
+          "Price": 2,
+          "Effect": 2,
+          "Name": "Medium Attack Boost",
+          "Description": "Среднее усиление атаки для союзника."
+        },
+        {
+          "$type": "lab3.HealthSpell, lab3",
+          "Price": 2,
+          "Effect": 2,
+          "Name": "Medium Healing Potion",
+          "Description": "Среднее зелье, восстанавливающее здоровье союзнику."
+        },
+        {
+          "$type": "lab3.LowAttackSpell, lab3",
+          "Price": 2,
+          "Effect": 2,
+          "Name": "Medium Weakening Spell",
+          "Description": "Среднее заклинание, значительно ослабляющее врага."
+        },
+        {
+          "$type": "lab3.Archer, lab3",
+          "Hp": 4,
+          "Damage": 6,
+          "Price": 5,
+          "Name": "Sharpshooter",
+          "Description": "Снайпер с высоким уроном, но уязвимой защитой."
+        },
+        {
+          "$type": "lab3.Melee, lab3",
+          "Hp": 7,
+          "Damage": 4,
+          "Price": 4,
+          "Name": "Shielded Swordsman",
+          "Description": "Мечник с щитом, балансирующий между атакой и защитой."
+        },
+        {
+          "$type": "lab3.Fly, lab3",
+          "Hp": 7,
+          "Damage": 1,
+          "Price": 6,
+          "Name": "Sky Dominator",
+          "Description": "Воздушный доминатор с высокой выживаемостью."
+        },
+        {
+          "$type": "lab3.Fly, lab3",
+          "Hp": 5,
+          "Damage": 4,
+          "Price": 3,
+          "Name": "Sky Scout",
+          "Description": "Воздушный разведчик, владеющий средней атакой и защитой."
+        },
+        {
+          "$type": "lab3.UpgradeAttackSpell, lab3",
+          "Price": 1,
+          "Effect": 1,
+          "Name": "Small Attack Boost",
+          "Description": "Маленькое усиление атаки для союзника."
+        },
+        {
+          "$type": "lab3.HealthSpell, lab3",
+          "Price": 1,
+          "Effect": 1,
+          "Name": "Small Healing Potion",
+          "Description": "Маленькое зелье, восстанавливающее немного здоровья союзнику."
+        },
+        {
+          "$type": "lab3.LowAttackSpell, lab3",
+          "Price": 1,
+          "Effect": 1,
+          "Name": "Small Weakening Spell",
+          "Description": "Маленькое заклинание, снижающее урон врага."
+        },
+        {
+          "$type": "lab3.Tank, lab3",
+          "Hp": 9,
+          "Damage": 5,
+          "Price": 5,
+          "Name": "Stonewall Tank",
+          "Description": "Каменная стена, сочетающая мощную атаку с высокой защитой."
+        },
+        {
+          "$type": "lab3.Fly, lab3",
+          "Hp": 3,
+          "Damage": 5,
+          "Price": 5,
+          "Name": "Storm Hawk",
+          "Description": "Грозовой ястреб, молниеносно атакующий врагов."
+        },
+        {
+          "$type": "lab3.Mage, lab3",
+          "Hp": 6,
+          "Damage": 4,
+          "Price": 6,
+          "Name": "Storm Mage",
+          "Description": "Маг грозы, использующий молнии для атаки врагов."
+        },
+        {
+          "$type": "lab3.Archer, lab3",
+          "Hp": 5,
+          "Damage": 5,
+          "Price": 4,
+          "Name": "Swift Archer",
+          "Description": "Ловкий лучник, быстро и точно стреляющий в цель."
+        },
+        {
+          "$type": "lab3.Melee, lab3",
+          "Hp": 6,
+          "Damage": 5,
+          "Price": 2,
+          "Name": "Swordfighter",
+          "Description": "Боец с мечом, эффективно сражающийся на ближней дистанции."
+        },
+        {
+          "$type": "lab3.Melee, lab3",
+          "Hp": 4,
+          "Damage": 7,
+          "Price": 5,
+          "Name": "Warrior of the Light",
+          "Description": "Святой воин, чьи атаки наделены божественной силой."
+        },
+        {
+          "$type": "lab3.Fly, lab3",
+          "Hp": 4,
+          "Damage": 3,
+          "Price": 2,
+          "Name": "Wind Serpent",
+          "Description": "Летающая змея, быстро атакующая противников."
+        }
+      ]
+    }
+  },
+  "Player1": {
+    "$type": "lab3.Player, lab3",
+    "IsPlayerTurn": false,
+    "Name": "Player 1",
+    "Coins": 12,
+    "Deck": {
+      "$type": "lab3.Deck, lab3",
+      "Cards": {
+        "$type": "System.Collections.Generic.List`1[[lab3.Card, lab3]], mscorlib",
+        "$values": []
+      }
+    }
+  },
+  "Player2": {
+    "$type": "lab3.Player, lab3",
+    "IsPlayerTurn": false,
+    "Name": "Player 2",
+    "Coins": 12,
+    "Deck": {
+      "$type": "lab3.Deck, lab3",
+      "Cards": {
+        "$type": "System.Collections.Generic.List`1[[lab3.Card, lab3]], mscorlib",
+        "$values": []
+      }
+    }
+  }
+}
