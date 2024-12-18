@@ -68,8 +68,8 @@ namespace lab3
         public Settings()
         {
             MaxCoins = 12;
-            NumCardOnTable = 5;
             SizeDeck = 15;
+            NumCardOnTable = 5;
         }
         public Settings(int _maxCoins, int _numMapsOnTable, int _sizeDeck) 
         {

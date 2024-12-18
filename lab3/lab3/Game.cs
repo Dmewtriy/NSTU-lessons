@@ -51,6 +51,8 @@ namespace lab3
         {
             player1.MaxCoins = settings.MaxCoins;
             player2.MaxCoins = settings.MaxCoins;
+            player1.MaxNumCardOnTable = settings.NumCardOnTable;
+            player2.MaxNumCardOnTable = settings.NumCardOnTable;
             player1.Deck.MaxDeckSize = settings.SizeDeck;
             player2.Deck.MaxDeckSize = settings.SizeDeck;
 

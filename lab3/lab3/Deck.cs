@@ -32,7 +32,7 @@ namespace lab3
             if (cards.Contains(card))
                 throw new ArgumentException($"Карта {card.Name} уже в колоде. Выберите другую карту.");
 
-            if (cards.Count >= 0)
+            if (cards.Count >= MaxDeckSize)
                 throw new ArgumentException("Колода уже полная");
 
             cards.Add(card);

@@ -73,6 +73,7 @@ namespace lab3
         public Player(Deck d)
         {
             deck = d;
+            cardsInHand = new List<Card>();
         }
 
         public Deck Deck
