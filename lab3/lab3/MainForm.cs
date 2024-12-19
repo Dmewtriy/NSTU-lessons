@@ -71,15 +71,21 @@ namespace lab3
         {
             Game game = new Game(new Player(), new Player());
             CreateGameForm newGameForm = new CreateGameForm();
-            newGameForm.Show();
-            Hide(); // Скрыть MainForm
+            Hide();
+            if (newGameForm.ShowDialog() == DialogResult.OK)
+            {
+                Close();
+            }
         }
 
         private void btnLoadGame_Click(object sender, EventArgs e)
         {
             LoadGameForm loadGame = new LoadGameForm();
-            loadGame.Show();
-            Hide(); // Скрыть MainForm
+            Hide();
+            if(loadGame.ShowDialog() == DialogResult.OK)
+            {
+                Close();
+            }
         }
         private void btnExist_Click(object sender, EventArgs e)
         {

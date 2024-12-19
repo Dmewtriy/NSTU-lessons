@@ -58,7 +58,10 @@ namespace lab3
             Game game = Game.LoadGame(listOfSaves.SelectedItem as string);
             PlayForm playForm = new PlayForm(game);
             Hide();
-            playForm.Show();
+            if(playForm.ShowDialog() == DialogResult.OK)
+            {
+                Close();
+            }
         }
 
         private void btnDelete_Click()

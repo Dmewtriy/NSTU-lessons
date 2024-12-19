@@ -190,6 +190,7 @@ namespace lab3
                             if (game.gameIsEnd(game.Player2))
                             {
                                 MessageBox.Show($"Победил игрок {game.Player1.Name}", "Победа", MessageBoxButtons.OK);
+                                DialogResult = DialogResult.OK;
                                 Close();
                             }
                         }
@@ -222,6 +223,7 @@ namespace lab3
                         if (game.gameIsEnd(game.Player1))
                         {
                             MessageBox.Show($"Победил игрок {game.Player2.Name}", "Победа", MessageBoxButtons.OK);
+                            DialogResult = DialogResult.OK;
                             Close();
                         }
                     }

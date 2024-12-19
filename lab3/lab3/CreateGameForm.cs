@@ -222,7 +222,11 @@ namespace lab3
                 game.SaveGame();
                 Hide();
                 PlayForm playForm = new PlayForm(game);
-                playForm.Show();
+                if(playForm.ShowDialog() == DialogResult.OK)
+                {
+                    DialogResult = DialogResult.OK;
+                    Close();
+                }
             }
         }
 
